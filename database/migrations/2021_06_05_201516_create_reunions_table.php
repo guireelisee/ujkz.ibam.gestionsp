@@ -14,7 +14,11 @@ class CreateReunionsTable extends Migration
     public function up()
     {
         Schema::create('reunions', function (Blueprint $table) {
-            $table->id();
+            $table->increments('idR');
+            $table->string('typeR');
+            $table->dateTime('dateR');
+            $table->string('lieuR');
+            $table->string('ordreJourR');
             $table->timestamps();
         });
     }
