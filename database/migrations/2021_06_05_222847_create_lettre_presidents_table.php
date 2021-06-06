@@ -14,7 +14,15 @@ class CreateLettrePresidentsTable extends Migration
     public function up()
     {
         Schema::create('lettre_presidents', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idLP');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->string('objetLP', 255);
+            $table->longText('corpsLP');
             $table->timestamps();
         });
     }

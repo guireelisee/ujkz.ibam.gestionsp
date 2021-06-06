@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDemandeHebergementsTable extends Migration
+class CreateTitrePersonnelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateDemandeHebergementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('demande_hebergements', function (Blueprint $table) {
-            $table->id();
+        Schema::create('titre_personnels', function (Blueprint $table) {
+            $table->bigIncrements('idTitreP');
+            $table->string('intituleTitreP', 255);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateDemandeHebergementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demande_hebergements');
+        Schema::dropIfExists('titre_personnels');
     }
 }

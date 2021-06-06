@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Cotisation extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idC',
+        'idP',
+        'montantC',
+        'dateDebutC'
+    ];
 }

@@ -14,7 +14,8 @@ class CreateAmpliationsTable extends Migration
     public function up()
     {
         Schema::create('ampliations', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idAmp');
+            $table->string('intitule', 255)->nullable();
             $table->timestamps();
         });
     }

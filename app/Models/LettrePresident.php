@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class LettrePresident extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idLP',
+        'idP',
+        'objetLP',
+        'corpsLP'
+    ];
 }

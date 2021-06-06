@@ -14,7 +14,19 @@ class CreateNoteInfosTable extends Migration
     public function up()
     {
         Schema::create('note_infos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idNI');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->foreign('idDNI')
+                ->references('idDNI')
+                ->on('destinataire_note_infos')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->longText('corpsNI');
             $table->timestamps();
         });
     }

@@ -14,7 +14,14 @@ class CreatePassageSallesTable extends Migration
     public function up()
     {
         Schema::create('passage_salles', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idPSalle');
+            $table->unsignedBigInteger('idV');
+            $table->foreign('idV')
+                ->references('idV')
+                ->on('visiteurs')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->string('motifPS', 255);
             $table->timestamps();
         });
     }

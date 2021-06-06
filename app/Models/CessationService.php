@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CessationService extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idCS',
+        'idP',
+        'motifCS',
+        'dateDecisionCS',
+        'dateFinServiceCS'
+    ];
 }

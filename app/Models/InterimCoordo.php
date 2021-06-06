@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class InterimCoordo extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idIC',
+        'idP',
+        'idFiliere',
+        'dateDebutIC',
+        'dateFinIC'
+    ];
 }

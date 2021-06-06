@@ -14,7 +14,15 @@ class CreateCotisationsTable extends Migration
     public function up()
     {
         Schema::create('cotisations', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idC');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->double('montantC', 15, 2);
+            $table->dateTime('dateDebutC');
             $table->timestamps();
         });
     }

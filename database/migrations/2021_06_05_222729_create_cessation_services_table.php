@@ -14,7 +14,16 @@ class CreateCessationServicesTable extends Migration
     public function up()
     {
         Schema::create('cessation_services', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idCS');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->string('motifCS', 255);
+            $table->dateTime('dateDecisionCS');
+            $table->dateTime('dateFinServCS');
             $table->timestamps();
         });
     }

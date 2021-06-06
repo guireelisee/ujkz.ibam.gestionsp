@@ -14,7 +14,17 @@ class CreateAutorisationAbsencesTable extends Migration
     public function up()
     {
         Schema::create('autorisation_absences', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idAA');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->string('motifAA', 255)->nullable();
+            $table->string('destinataireAA', 255);
+            $table->dateTime('dateDepartAA');
+            $table->dateTime('dateRetourAA');
             $table->timestamps();
         });
     }

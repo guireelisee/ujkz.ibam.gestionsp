@@ -14,7 +14,16 @@ class CreateInscriptionStandardesTable extends Migration
     public function up()
     {
         Schema::create('inscription_standardes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idIS');
+            $table->unsignedBigInteger('idFiliere');
+            $table->foreign('idFiliere')
+                ->references('idFiliere')
+                ->on('filieres')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+                $table->string('nomIS', 255);
+                $table->string('prenomIS', 255);
+                $table->date('anneeIS');
             $table->timestamps();
         });
     }

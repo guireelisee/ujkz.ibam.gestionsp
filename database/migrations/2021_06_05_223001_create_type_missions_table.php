@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCivilitesTable extends Migration
+class CreateTypeMissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCivilitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('civilites', function (Blueprint $table) {
-            $table->id();
+        Schema::create('type_missions', function (Blueprint $table) {
+            $table->bigIncrements('idTM');
+            $table->string('intituleTM', 255);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateCivilitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('civilites');
+        Schema::dropIfExists('type_missions');
     }
 }

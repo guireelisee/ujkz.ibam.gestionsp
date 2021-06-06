@@ -14,7 +14,16 @@ class CreateReunionsTable extends Migration
     public function up()
     {
         Schema::create('reunions', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idR');
+            $table->unsignedBigInteger('idTR');
+            $table->foreign('idTR')
+                    ->references('idTR')
+                    ->on('type_reunions')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+            $table->date('dateR');
+            $table->string('lieuR', 255)->default('IBAM');
+            $table->string('ordreJour', 255)->nullable();
             $table->timestamps();
         });
     }

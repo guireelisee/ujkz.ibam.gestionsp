@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class DemandeSalle extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idDS',
+        'idV',
+        'dateDepotDS',
+        'destinataireDS',
+        'dateOccupDS',
+        'dateFinDS',
+        'motifDS'
+    ];
 }

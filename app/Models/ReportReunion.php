@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ReportReunion extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idRR',
+        'dateRR',
+        'lieuRR'
+    ];
 }

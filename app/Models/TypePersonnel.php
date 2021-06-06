@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TypePersonnel extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idTP',
+        'intituleTP'
+    ];
 }

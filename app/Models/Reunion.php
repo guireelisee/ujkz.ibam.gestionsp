@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reunion extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idR',
+        'typeR',
+        'dateR',
+        'lieuR',
+        'ordreJourR'
+    ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVisiteursTable extends Migration
+class CreateDestinataireNoteInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateVisiteursTable extends Migration
      */
     public function up()
     {
-        Schema::create('visiteurs', function (Blueprint $table) {
-            $table->id();
+        Schema::create('destinataire_note_infos', function (Blueprint $table) {
+            $table->bigIncrements('idDNI');
+            $table->string('intituleDNI', 255);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateVisiteursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visiteurs');
+        Schema::dropIfExists('destinataire_note_infos');
     }
 }

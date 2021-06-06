@@ -14,7 +14,17 @@ class CreateBorderausTable extends Migration
     public function up()
     {
         Schema::create('borderaus', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idB');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->text('naturePieceB');
+            $table->integer('nombrePieceB')->unsigned();
+            $table->text('observationB');
+            $table->string('destinataireB', 255);
             $table->timestamps();
         });
     }

@@ -14,7 +14,14 @@ class CreateDemandeAudiencesTable extends Migration
     public function up()
     {
         Schema::create('demande_audiences', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idDA');
+            $table->unsignedBigInteger('idV');
+            $table->foreign('idV')
+                ->references('idV')
+                ->on('visiteurs')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->string('motifDA', 255);
             $table->timestamps();
         });
     }

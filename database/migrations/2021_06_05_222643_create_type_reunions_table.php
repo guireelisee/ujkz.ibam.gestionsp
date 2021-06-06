@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeMissionsTable extends Migration
+class CreateTypeReunionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateTypeMissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_missions', function (Blueprint $table) {
-            $table->id();
+        Schema::create('type_reunions', function (Blueprint $table) {
+            $table->bigIncrements('idTR');
+            $table->string('intituleTR', 255);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateTypeMissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_missions');
+        Schema::dropIfExists('type_reunions');
     }
 }

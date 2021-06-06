@@ -14,7 +14,21 @@ class CreateInterimCoordosTable extends Migration
     public function up()
     {
         Schema::create('interim_coordos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idIC');
+            $table->unsignedBigInteger('idP');
+            $table->foreign('idP')
+                ->references('idP')
+                ->on('personnels')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->unsignedBigInteger('idFiliere');
+            $table->foreign('idFiliere')
+                ->references('idFiliere')
+                ->on('filieres')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->dateTime('dateDebutIC');
+            $table->dateTime('dateFinIC');
             $table->timestamps();
         });
     }

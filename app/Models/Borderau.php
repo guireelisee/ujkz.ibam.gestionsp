@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Borderau extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idB',
+        'idP',
+        'naturePieceB',
+        'nombrePieceB',
+        'observationB',
+        'destinataireB'
+    ];
 }

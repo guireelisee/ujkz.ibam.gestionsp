@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class NoteInfo extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'idNI',
+        'idP',
+        'destinataireNI',
+        'corpsNI'
+    ];
 }

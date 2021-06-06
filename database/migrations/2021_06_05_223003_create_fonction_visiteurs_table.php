@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypePersonnelsTable extends Migration
+class CreateFonctionVisiteursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateTypePersonnelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_personnels', function (Blueprint $table) {
-            $table->id();
+        Schema::create('fonction_visiteurs', function (Blueprint $table) {
+            $table->bigIncrements('idFonctionV');
+            $table->string('intituleFonctionV', 255);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateTypePersonnelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_personnels');
+        Schema::dropIfExists('fonction_visiteurs');
     }
 }

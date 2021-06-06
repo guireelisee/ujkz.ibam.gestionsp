@@ -14,7 +14,9 @@ class CreateReportReunionsTable extends Migration
     public function up()
     {
         Schema::create('report_reunions', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idRR');
+            $table->dateTime('dateRR')->nullable();
+            $table->string('lieuRR', 255)->nullable();
             $table->timestamps();
         });
     }

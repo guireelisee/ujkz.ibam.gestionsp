@@ -14,7 +14,18 @@ class CreateDemandeSallesTable extends Migration
     public function up()
     {
         Schema::create('demande_salles', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idDS');
+            $table->unsignedBigInteger('idV');
+            $table->foreign('idV')
+                ->references('idV')
+                ->on('visiteurs')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->dateTime('dateDepotDS');
+            $table->string('destinataireDS', 255);
+            $table->dateTime('dateOccupDS');
+            $table->dateTime('dateFinDS');
+            $table->string('motifDS', 255);
             $table->timestamps();
         });
     }

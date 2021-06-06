@@ -14,7 +14,8 @@ class CreateFilieresTable extends Migration
     public function up()
     {
         Schema::create('filieres', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('idFiliere');
+            $table->string('intituleFiliere', 255);
             $table->timestamps();
         });
     }
