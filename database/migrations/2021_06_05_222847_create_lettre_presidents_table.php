@@ -19,8 +19,8 @@ class CreateLettrePresidentsTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->string('objetLP', 255);
             $table->longText('corpsLP');
             $table->timestamps();

@@ -20,7 +20,7 @@ class CreateSalleDemandeSallesTable extends Migration
                 ->on('salles')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->bigIncrements('idDS');
+            $table->unsignedBigInteger('idDS');
             $table->foreign('idDS')
                 ->references('idDS')
                 ->on('demande_salles')

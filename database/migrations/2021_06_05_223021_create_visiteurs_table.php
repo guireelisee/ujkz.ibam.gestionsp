@@ -19,8 +19,8 @@ class CreateVisiteursTable extends Migration
             $table->foreign('idCivilite')
                 ->references('idCivilite')
                 ->on('civilites')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->string('nomV', 255);
             $table->string('prenomV', 255);
             $table->string('telephoneV', 255);
@@ -31,14 +31,14 @@ class CreateVisiteursTable extends Migration
             $table->foreign('idTV')
                 ->references('idTitreV')
                 ->on('titre_visiteurs')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->unsignedBigInteger('idFV');
             $table->foreign('idFV')
                 ->references('idFonctionV')
                 ->on('fonction_visiteurs')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->timestamps();
         });
     }

@@ -19,8 +19,8 @@ class CreateDemandeSallesTable extends Migration
             $table->foreign('idV')
                 ->references('idV')
                 ->on('visiteurs')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->dateTime('dateDepotDS');
             $table->string('destinataireDS', 255);
             $table->dateTime('dateOccupDS');

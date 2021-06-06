@@ -19,8 +19,8 @@ class CreateInscriptionStandardesTable extends Migration
             $table->foreign('idFiliere')
                 ->references('idFiliere')
                 ->on('filieres')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
                 $table->string('nomIS', 255);
                 $table->string('prenomIS', 255);
                 $table->date('anneeIS');

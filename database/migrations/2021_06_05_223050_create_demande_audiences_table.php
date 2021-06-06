@@ -19,8 +19,8 @@ class CreateDemandeAudiencesTable extends Migration
             $table->foreign('idV')
                 ->references('idV')
                 ->on('visiteurs')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->string('motifDA', 255);
             $table->timestamps();
         });

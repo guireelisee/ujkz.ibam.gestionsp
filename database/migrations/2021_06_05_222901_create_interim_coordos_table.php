@@ -19,14 +19,14 @@ class CreateInterimCoordosTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->unsignedBigInteger('idFiliere');
             $table->foreign('idFiliere')
                 ->references('idFiliere')
                 ->on('filieres')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->dateTime('dateDebutIC');
             $table->dateTime('dateFinIC');
             $table->timestamps();

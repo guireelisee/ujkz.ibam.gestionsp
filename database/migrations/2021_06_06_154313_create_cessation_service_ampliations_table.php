@@ -20,7 +20,7 @@ class CreateCessationServiceAmpliationsTable extends Migration
                 ->on('cessation_services')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->bigIncrements('idAmp');
+            $table->unsignedBigInteger('idAmp');
             $table->foreign('idAmp')
                 ->references('idAmp')
                 ->on('ampliations')

@@ -19,8 +19,8 @@ class CreatePassageSallesTable extends Migration
             $table->foreign('idV')
                 ->references('idV')
                 ->on('visiteurs')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->string('motifPS', 255);
             $table->timestamps();
         });

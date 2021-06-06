@@ -20,7 +20,7 @@ class CreateReunionAmpliationsTable extends Migration
                 ->on('reunions')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->bigIncrements('idAmp');
+            $table->unsignedBigInteger('idAmp');
             $table->foreign('idAmp')
                 ->references('idAmp')
                 ->on('ampliations')

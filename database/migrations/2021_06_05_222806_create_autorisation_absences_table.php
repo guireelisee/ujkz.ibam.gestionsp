@@ -19,8 +19,8 @@ class CreateAutorisationAbsencesTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->string('motifAA', 255)->nullable();
             $table->string('destinataireAA', 255);
             $table->dateTime('dateDepartAA');

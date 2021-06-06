@@ -19,8 +19,8 @@ class CreateBorderausTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->text('naturePieceB');
             $table->integer('nombrePieceB')->unsigned();
             $table->text('observationB');

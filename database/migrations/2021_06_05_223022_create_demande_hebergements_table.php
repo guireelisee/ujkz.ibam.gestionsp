@@ -19,24 +19,24 @@ class CreateDemandeHebergementsTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->unsignedBigInteger('idV');
             $table->foreign('idV')
                 ->references('idV')
                 ->on('visiteurs')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->unsignedBigInteger('idTM');
             $table->foreign('idTM')
                 ->references('idTM')
                 ->on('type_missions')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->integer('volumeHoraireDH')->unsigned();
-            $table->string('disciplineDH', 255);
-            $table->string('cadreDH', 255);
-            $table->string('departementDH', 255);
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->unsignedBigInteger('volumeHoraireDH')->unsigned()->nullable();
+            $table->string('disciplineDH', 255)->nullable();
+            $table->string('cadreDH', 255)->nullable();
+            $table->string('departementDH', 255)->nullable();
             $table->dateTime('dateSoutenanceDH')->nullable();
             $table->string('themeSoutenanceDH', 255)->nullable();
             $table->string('autreMotifDH', 255)->nullable();

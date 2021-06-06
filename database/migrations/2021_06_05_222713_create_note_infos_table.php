@@ -21,6 +21,7 @@ class CreateNoteInfosTable extends Migration
                 ->on('personnels')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
+            $table->unsignedBigInteger('idDNI');
             $table->foreign('idDNI')
                 ->references('idDNI')
                 ->on('destinataire_note_infos')

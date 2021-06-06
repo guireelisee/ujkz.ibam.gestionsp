@@ -19,8 +19,8 @@ class CreateCessationServicesTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->string('motifCS', 255);
             $table->dateTime('dateDecisionCS');
             $table->dateTime('dateFinServCS');

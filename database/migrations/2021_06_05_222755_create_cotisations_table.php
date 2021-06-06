@@ -19,8 +19,8 @@ class CreateCotisationsTable extends Migration
             $table->foreign('idP')
                 ->references('idP')
                 ->on('personnels')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->double('montantC', 15, 2);
             $table->dateTime('dateDebutC');
             $table->timestamps();
