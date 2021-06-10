@@ -22,7 +22,7 @@ class FonctionPersonnelFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'intituleFonctionP' => $this->faker->name
         ];
     }
 }
