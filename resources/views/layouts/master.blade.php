@@ -6,11 +6,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Management Admin</title>
+    <title>@yield('pageName') - A.C.W.E GEST | Votre logiciel de gestion d'actes administratifs</title>
 
-    <link rel="icon" href="img/mini_logo.png" type="image/png">
+    <link rel="icon" href="{{ asset('img/mini_logo.png') }}" type="image/png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <!-- themefy CSS -->
     <link rel="stylesheet" href="{{ asset('vendors/themefy_icon/themify-icons.css') }}" />
     <!-- select2 CSS -->
@@ -56,366 +56,162 @@
  <!-- sidebar  -->
 <nav class="sidebar">
     <div class="logo d-flex justify-content-between">
-        <a class="large_logo" href="index.html"><img src="img/logo.png" alt=""></a>
-        <a class="small_logo" href="index.html"><img src="img/mini_logo.png" alt=""></a>
+        <a class="large_logo" href="{{ route('index') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
+        <a class="small_logo" href="{{ route('index') }}"><img src="{{ asset('img/mini_logo.png') }}" alt=""></a>
         <div class="sidebar_close_icon d-lg-none">
             <i class="ti-close"></i>
         </div>
     </div>
     <ul id="sidebar_menu">
         <li class="">
+            <a class="" href="#" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="img/menu-icon/dashboard.svg" alt="">
+                </div>
+                <div class="nav_title">
+                    <span>Tableau de bord</span>
+                </div>
+            </a>
+        </li>
+        <li class="">
+            <a class="" href="#" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="img/menu-icon/dashboard.svg" alt="">
+                </div>
+                <div class="nav_title">
+                    <span>Bordereau</span>
+                </div>
+            </a>
+        </li>
+         <li class="">
+            <a href="#" aria-expanded="false">
+              <div class="nav_icon_small">
+                <img src="img/menu-icon/dashboard.svg" alt="">
+            </div>
+            <div class="nav_title">
+                <span>Cotisation MUSESUP</span>
+            </div>
+            </a>
+        </li>
+        <li class="">
             <a class="has-arrow" href="#" aria-expanded="false">
                 <div class="nav_icon_small">
                     <img src="img/menu-icon/dashboard.svg" alt="">
                 </div>
                 <div class="nav_title">
-                    <span>User Management </span>
+                    <span>Demandes </span>
                 </div>
             </a>
             <ul>
-                <li><a href="index_2.html">Default</a></li>
-              <li><a href="index_3.html">Dark Sidebar</a></li>
-              <li><a href="index.html">Light Sidebar</a></li>
+                <li><a href="#">Audience</a></li>
+                <li><a href="#">Hébergement</a></li>
+                <li><a href="#">Passage dans les salles</a></li>
+                <li><a href="#">Salles</a></li>
             </ul>
+        </li>
+        <li class="">
+            <a href="#" aria-expanded="false">
+              <div class="nav_icon_small">
+                <img src="img/menu-icon/dashboard.svg" alt="">
+            </div>
+            <div class="nav_title">
+                <span>Inscription standarde</span>
+            </div>
+            </a>
         </li>
         <li class="">
             <a class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/2.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Application </span>
-                </div>
-            </a>
-            <ul>
-              <li><a href="editor.html">editor</a></li>
-              <li><a href="mail_box.html">Mail Box</a></li>
-              <li><a href="chat.html">Chat</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </li>
-        <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                <img src="img/menu-icon/3.svg" alt="">
+                <img src="img/menu-icon/dashboard.svg" alt="">
             </div>
             <div class="nav_title">
-                <span>Pages</span>
+                <span>Lettres</span>
             </div>
             </a>
             <ul>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="resister.html">Register</a></li>
-              <li><a href="error_400.html">Error 404</a></li>
-              <li><a href="error_500.html">Error 500</a></li>
-              <li><a href="forgot_pass.html">Forgot Password</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="#">Président de l'UO</a></li>
             </ul>
         </li>
         <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
+            <a href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                <img src="img/menu-icon/4.svg" alt="">
+                <img src="img/menu-icon/dashboard.svg" alt="">
             </div>
             <div class="nav_title">
-                <span>Admins</span>
-            </div>
-            </a>
-            <ul>
-              <li><a href="admin_list.html">Admin List</a></li>
-              <li><a href="add_new_admin.html">Add New Admin</a></li>
-            </ul>
-        </li>
-        <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
-              <div class="nav_icon_small">
-                <img src="img/menu-icon/11.svg" alt="">
-            </div>
-            <div class="nav_title">
-                <span>Role & Permissions</span>
-            </div>
-            </a>
-            <ul>
-              <li><a href="module_setting.html">Module Setting</a></li>
-              <li><a href="role_permissions.html">Role & Permissions</a></li>
-            </ul>
-        </li>
-        <li class="">
-            <a  href="navs.html" aria-expanded="false">
-              <div class="nav_icon_small">
-                <img src="img/menu-icon/12.svg" alt="">
-            </div>
-            <div class="nav_title">
-                <span>Navs</span>
+                <span>Notes d'information</span>
             </div>
             </a>
         </li>
         <li class="">
             <a   class="has-arrow" href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                <img src="img/menu-icon/5.svg" alt="">
+                <img src="img/menu-icon/dashboard.svg" alt="">
             </div>
             <div class="nav_title">
-                <span>Users</span>
+                <span>Notes de service</span>
             </div>
             </a>
             <ul>
-              <li><a href="user_list.html">Users List</a></li>
-              <li><a href="add_new_user.html">Add New User</a></li>
+              <li><a href="#">Autorisation absence</a></li>
+              <li><a href="#">Cessation de service</a></li>
+              <li><a href="#">Interim du coordonnateur</a></li>
             </ul>
         </li>
-        <li>
-            <a href="Builder.html" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/6.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Builder </span>
-                </div>
-            </a>
-        </li>
         <li class="">
-            <a  href="invoice.html" aria-expanded="false">
+            <a href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                <img src="img/menu-icon/7.svg" alt="">
+                <img src="img/menu-icon/dashboard.svg" alt="">
             </div>
             <div class="nav_title">
-                <span>Invoice</span>
+                <span>Personnels</span>
             </div>
             </a>
         </li>
         <li class="">
-            <a  class="has-arrow" href="#" aria-expanded="false">
+            <a href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                  <img src="img/menu-icon/8.svg" alt="">
-              </div>
-              <div class="nav_title">
-                  <span>forms</span>
-              </div>
+                <img src="img/menu-icon/dashboard.svg" alt="">
+            </div>
+            <div class="nav_title">
+                <span>Réunions</span>
+            </div>
             </a>
-            <ul>
-              <li><a href="Basic_Elements.html">Basic Elements</a></li>
-              <li><a href="Groups.html">Groups</a></li>
-              <li><a href="Max_Length.html">Max Length</a></li>
-              <li><a href="Layouts.html">Layouts</a></li>
-            </ul>
-          </li>
-          <li class="">
-              <a href="Board.html" aria-expanded="false">
-                  <div class="nav_icon_small">
-                      <img src="img/menu-icon/9.svg" alt="">
-                  </div>
-                  <div class="nav_title">
-                      <span>Board</span>
-                  </div>
-              </a>
-          </li>
+        </li>
         <li class="">
-            <a  href="calender.html" aria-expanded="false">
+            <a href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                <img src="img/menu-icon/10.svg" alt="">
+                <img src="img/menu-icon/dashboard.svg" alt="">
             </div>
             <div class="nav_title">
-                <span>Calander</span>
+                <span>Report réunions</span>
             </div>
             </a>
         </li>
         <li class="">
-            <a  class="has-arrow" href="#" aria-expanded="false">
+            <a href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                  <img src="img/menu-icon/11.svg" alt="">
-              </div>
-              <div class="nav_title">
-                  <span>Themes</span>
-              </div>
-            </a>
-            <ul>
-              <li><a href="dark_sidebar.html">Dark Sidebar</a></li>
-              <li><a href="light_sidebar.html">light Sidebar</a></li>
-            </ul>
-        </li>
-        <li class="">
-            <a  class="has-arrow" href="#" aria-expanded="false">
-              <div class="nav_icon_small">
-                  <img src="img/menu-icon/12.svg" alt="">
-              </div>
-              <div class="nav_title">
-                  <span>General</span>
-              </div>
-            </a>
-            <ul>
-              <li><a href="Minimized_Aside.html">Minimized Aside</a></li>
-              <li><a href="empty_page.html">Empty page</a></li>
-              <li><a href="fixed_footer.html">Fixed Footer</a></li>
-            </ul>
-        </li>
-        <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
-            <div class="nav_icon_small">
-                <img src="img/menu-icon/13.svg" alt="">
+                <img src="img/menu-icon/dashboard.svg" alt="">
             </div>
             <div class="nav_title">
-                <span>Products</span>
+                <span>Visiteurs</span>
             </div>
             </a>
-            <ul>
-              <li><a href="Products.html">Products</a></li>
-              <li><a href="Product_Details.html">Product Details</a></li>
-              <li><a href="Cart.html">Cart</a></li>
-              <li><a href="Checkout.html">Checkout</a></li>
-            </ul>
-          </li>
-        <li class="">
-          <a   class="has-arrow" href="#" aria-expanded="false">
-            <div class="nav_icon_small">
-                <img src="img/menu-icon/14.svg" alt="">
-            </div>
-            <div class="nav_title">
-                <span>Icons</span>
-            </div>
-          </a>
-          <ul>
-            <li><a href="Fontawesome_Icon.html">Fontawesome Icon</a></li>
-            <li><a href="themefy_icon.html">themefy icon</a></li>
-          </ul>
-        </li>
-        <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/15.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Animations</span>
-                </div>
-            </a>
-            <ul>
-                <li><a href="wow_animation.html">Animate</a></li>
-                <li><a href="Scroll_Reveal.html">Scroll Reveal</a></li>
-                <li><a href="tilt.html">Tilt Animation</a></li>
-
-            </ul>
-          </li>
-          <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/16.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Components</span>
-                </div>
-            </a>
-            <ul>
-              <li><a href="accordion.html">Accordions</a></li>
-              <li><a href="Scrollable.html">Scrollable</a></li>
-              <li><a href="notification.html">Notifications</a></li>
-              <li><a href="carousel.html">Carousel</a></li>
-              <li><a href="Pagination.html">Pagination</a></li>
-            </ul>
-          </li>
-
-          <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/17.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Table</span>
-                </div>
-            </a>
-            <ul>
-                <li><a href="data_table.html">Data Tables</a></li>
-                <li><a href="bootstrap_table.html">Bootstrap</a></li>
-            </ul>
-          </li>
-          <li class="">
-            <a   class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="img/menu-icon/18.svg" alt="">
-                </div>
-                <div class="nav_title">
-                    <span>Cards</span>
-                </div>
-            </a>
-            <ul>
-                <li><a href="basic_card.html">Basic Card</a></li>
-                <li><a href="theme_card.html">Theme Card</a></li>
-                <li><a href="dargable_card.html">Draggable Card</a></li>
-            </ul>
-          </li>
-
-
-        <li class="">
-          <a   class="has-arrow" href="#" aria-expanded="false">
-            <div class="nav_icon_small">
-                <img src="img/menu-icon/19.svg" alt="">
-            </div>
-            <div class="nav_title">
-                <span>Charts</span>
-            </div>
-          </a>
-          <ul>
-            <li><a href="chartjs.html">ChartJS</a></li>
-            <li><a href="apex_chart.html">Apex Charts</a></li>
-            <li><a href="chart_sparkline.html">Chart sparkline</a></li>
-            <li><a href="am_chart.html">am-charts</a></li>
-            <li><a href="nvd3_charts.html">nvd3 charts.</a></li>
-          </ul>
         </li>
         <li class="">
             <a   class="has-arrow" href="#" aria-expanded="false">
               <div class="nav_icon_small">
-                  <img src="img/menu-icon/20.svg" alt="">
-              </div>
-              <div class="nav_title">
-                  <span>UI Kits </span>
-              </div>
+                <img src="img/menu-icon/dashboard.svg" alt="">
+            </div>
+            <div class="nav_title">
+                <span>Configurations</span>
+            </div>
             </a>
             <ul>
-              <li><a href="colors.html">colors</a></li>
-              <li><a href="Alerts.html">Alerts</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="modal.html">modal</a></li>
-              <li><a href="dropdown.html">Droopdowns</a></li>
-              <li><a href="Badges.html">Badges</a></li>
-              <li><a href="Loading_Indicators.html">Loading Indicators</a></li>
-              <li><a href="color_plate.html">Color Plate</a></li>
-              <li><a href="typography.html">Typography</a></li>
-              <li><a href="datepicker.html">Date Picker</a></li>
+              <li><a href="#">Ampliations</a></li>
+              <li><a href="#">Civilités</a></li>
+              <li><a href="#">Utilisateurs</a></li>
             </ul>
-          </li>
-
-        <li class="">
-          <a   class="has-arrow" href="#" aria-expanded="false">
-            <div class="nav_icon_small">
-                <img src="img/menu-icon/21.svg" alt="">
-            </div>
-            <div class="nav_title">
-                <span>Widgets</span>
-            </div>
-          </a>
-          <ul>
-            <li><a href="chart_box_1.html">Chart Boxes 1</a></li>
-            <li><a href="profilebox.html">Profile Box</a></li>
-          </ul>
         </li>
-
-
-        <li class="">
-          <a   class="has-arrow" href="#" aria-expanded="false">
-            <div class="nav_icon_small">
-                <img src="img/menu-icon/12.svg" alt="">
-            </div>
-            <div class="nav_title">
-                <span>Maps</span>
-            </div>
-          </a>
-          <ul>
-            <li><a href="mapjs.html">Maps JS</a></li>
-            <li><a href="vector_map.html">Vector Maps</a></li>
-          </ul>
-        </li>
-
-
       </ul>
 </nav>
  <!--/ sidebar  -->
@@ -437,109 +233,23 @@
                             <div class="search_inner">
                                 <form action="#">
                                     <div class="search_field">
-                                        <input type="text" placeholder="Search">
+                                        <input type="text" placeholder="Rechercher">
                                     </div>
                                     <button type="submit"> <img src="img/icon/icon_search.svg" alt=""> </button>
                                 </form>
                             </div>
                         </div>
-                        <div class="header_right d-flex justify-content-between align-items-center">
-                            <div class="header_notification_warp d-flex align-items-center">
-                                <li>
-                                    <a class="bell_notification_clicker" href="#"> <img src="img/icon/bell.svg" alt="">
-                                        <span>2</span>
-                                    </a>
-                                    <!-- Menu_NOtification_Wrap  -->
-                                <div class="Menu_NOtification_Wrap">
-                                    <div class="notification_Header">
-                                        <h4>Notifications</h4>
-                                    </div>
-                                    <div class="Notification_body">
-                                        <!-- single_notify  -->
-                                        <div class="single_notify d-flex align-items-center">
-                                            <div class="notify_thumb">
-                                                <a href="#"><img src="img/staf/2.png" alt=""></a>
-                                            </div>
-                                            <div class="notify_content">
-                                                <a href="#"><h5>Cool Marketing </h5></a>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                        <!-- single_notify  -->
-                                        <div class="single_notify d-flex align-items-center">
-                                            <div class="notify_thumb">
-                                                <a href="#"><img src="img/staf/4.png" alt=""></a>
-                                            </div>
-                                            <div class="notify_content">
-                                                <a href="#"><h5>Awesome packages</h5></a>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                        <!-- single_notify  -->
-                                        <div class="single_notify d-flex align-items-center">
-                                            <div class="notify_thumb">
-                                                <a href="#"><img src="img/staf/3.png" alt=""></a>
-                                            </div>
-                                            <div class="notify_content">
-                                                <a href="#"><h5>what a packages</h5></a>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                        <!-- single_notify  -->
-                                        <div class="single_notify d-flex align-items-center">
-                                            <div class="notify_thumb">
-                                                <a href="#"><img src="img/staf/2.png" alt=""></a>
-                                            </div>
-                                            <div class="notify_content">
-                                                <a href="#"><h5>Cool Marketing </h5></a>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                        <!-- single_notify  -->
-                                        <div class="single_notify d-flex align-items-center">
-                                            <div class="notify_thumb">
-                                                <a href="#"><img src="img/staf/4.png" alt=""></a>
-                                            </div>
-                                            <div class="notify_content">
-                                                <a href="#"><h5>Awesome packages</h5></a>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                        <!-- single_notify  -->
-                                        <div class="single_notify d-flex align-items-center">
-                                            <div class="notify_thumb">
-                                                <a href="#"><img src="img/staf/3.png" alt=""></a>
-                                            </div>
-                                            <div class="notify_content">
-                                                <a href="#"><h5>what a packages</h5></a>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="nofity_footer">
-                                        <div class="submit_button text-center pt_20">
-                                            <a href="#" class="btn_1">See More</a>
-                                        </div>
-                                    </div>
+                        <div class="profile_info">
+                            <img src="img/client_img.png" alt="#">
+                            <div class="profile_info_iner">
+                                <div class="profile_author_name">
+                                    <p>Utilisateur</p>
+                                    <h5>Son nom</h5>
                                 </div>
-                                <!--/ Menu_NOtification_Wrap  -->
-                                </li>
-                                <li>
-                                    <a class="CHATBOX_open" href="#"> <img src="img/icon/msg.svg" alt=""> <span>2</span>  </a>
-                                </li>
-                            </div>
-                            <div class="profile_info">
-                                <img src="img/client_img.png" alt="#">
-                                <div class="profile_info_iner">
-                                    <div class="profile_author_name">
-                                        <p>Neurologist </p>
-                                        <h5>Dr. Robar Smith</h5>
-                                    </div>
-                                    <div class="profile_info_details">
-                                        <a href="#">My Profile </a>
-                                        <a href="#">Settings</a>
-                                        <a href="#">Log Out </a>
-                                    </div>
+                                <div class="profile_info_details">
+                                    <a href="#">Voir son profil</a>
+                                    <a href="#">Paramètres</a>
+                                    <a href="#">Se déconnecter</a>
                                 </div>
                             </div>
                         </div>
@@ -549,7 +259,7 @@
         </div>
     <!--/ menu  -->
 
-    @yield('content')
+    {{-- @yield('pageContent') --}}
 
 <!-- footer part -->
 <div class="footer_part">
@@ -557,7 +267,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="footer_iner text-center">
-                    <p>2020 © Influence - Designed by <a href="#"> <i class="ti-heart"></i> </a><a href="#"> DashboardPack</a></p>
+                    <p><strong>Copyright © 2020-2021 ACWE-MIAGE L2/IBAM</strong> Tous droits reservés</p>
                 </div>
             </div>
         </div>
