@@ -16,6 +16,6 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->name('index');
-Route::get('/test', function(){
-    return view('layouts.entete');
+Route::get('/Bordereau', function(){
+    return view('layouts.printBordereau');
 });
