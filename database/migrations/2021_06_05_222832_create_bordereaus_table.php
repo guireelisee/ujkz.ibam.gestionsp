@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBorderausTable extends Migration
+class CreateBordereausTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBorderausTable extends Migration
      */
     public function up()
     {
-        Schema::create('borderaus', function (Blueprint $table) {
+        Schema::create('Bordereaus', function (Blueprint $table) {
             $table->bigIncrements('idB');
             $table->unsignedBigInteger('idP');
             $table->foreign('idP')
@@ -36,6 +36,6 @@ class CreateBorderausTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('borderaus');
+        Schema::dropIfExists('Bordereaus');
     }
 }

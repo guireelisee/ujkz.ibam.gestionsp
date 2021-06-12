@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class BorderauSeeder extends Seeder
+class BordereauSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Borderau;
+use App\Models\Bordereau;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BorderauFactory extends Factory
+class BordereauFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Borderau::class;
+    protected $model = Bordereau::class;
 
     /**
      * Define the model's default state.

@@ -65,7 +65,7 @@ options = {
         { name: "Tablets", type: "line", data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39] },
     ],
     fill: { opacity: [0.85, 0.25, 1], gradient: { inverseColors: !1, shade: "light", type: "vertical", opacityFrom: 0.85, opacityTo: 0.55, stops: [0, 100, 100, 100] } },
-    labels: ["01/01/2003", "02/01/2003", "03/01/2003", "04/01/2003", "05/01/2003", "06/01/2003", "07/01/2003", "08/01/2003", "09/01/2003", "10/01/2003", "11/01/2003"],
+    labels: ["01/01/2021", "02/01/2021", "03/01/2021", "04/01/2021", "05/01/2021", "06/01/2021", "07/01/2021", "08/01/2021", "09/01/2021", "10/01/2021", "11/01/2021"],
     markers: { size: 0 },
     xaxis: { type: "datetime" },
     yaxis: { title: { text: "Points" } },
@@ -83,7 +83,7 @@ options = {
 (chart = new ApexCharts(document.querySelector("#management_bar"), options)).render();
 
 
-// cart area 
+// cart area
 
 // currently sale
 var options = {

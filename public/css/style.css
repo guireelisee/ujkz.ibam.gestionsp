@@ -7876,7 +7876,7 @@ canvas#highlights {
 }
 
 /* line 30, G:/admin_project/8 admin/management_html/scss/_projects.scss */
-.dataTables_paginate a {
+/* .dataTables_paginate a {
   width: 32px;
   height: 32px;
   background: #FFFFFF !important;
@@ -7886,7 +7886,7 @@ canvas#highlights {
   padding: 0 !important;
   margin: 0 !important;
   margin: 0 5px !important;
-}
+} */
 
 /* line 40, G:/admin_project/8 admin/management_html/scss/_projects.scss */
 .dataTables_paginate a.current {

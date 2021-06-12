@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Borderau;
+use App\Models\Bordereau;
 use Illuminate\Http\Request;
 
-class BorderauController extends Controller
+class BordereauController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,12 @@ class BorderauController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.bordereau');
+    }
+
+    public function printBordereau()
+    {
+        return view('prints.printBordereau');
     }
 
     /**
@@ -41,10 +46,10 @@ class BorderauController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Borderau  $borderau
+     * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function show(Borderau $borderau)
+    public function show(Bordereau $Bordereau)
     {
         //
     }
@@ -52,10 +57,10 @@ class BorderauController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Borderau  $borderau
+     * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function edit(Borderau $borderau)
+    public function edit(Bordereau $Bordereau)
     {
         //
     }
@@ -64,10 +69,10 @@ class BorderauController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Borderau  $borderau
+     * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Borderau $borderau)
+    public function update(Request $request, Bordereau $Bordereau)
     {
         //
     }
@@ -75,10 +80,10 @@ class BorderauController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Borderau  $borderau
+     * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Borderau $borderau)
+    public function destroy(Bordereau $Bordereau)
     {
         //
     }
