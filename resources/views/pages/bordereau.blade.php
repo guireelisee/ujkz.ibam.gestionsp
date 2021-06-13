@@ -1,5 +1,7 @@
 @php
 use App\Http\Controllers\PersonnelController;
+use App\Models\Bordereau;
+use App\Models\Personnel;
 @endphp
 @extends('layouts.master')
 
@@ -37,7 +39,7 @@ Bordereau
                                         </div>
                                     </div>
                                     <div class="add_button ml-10">
-                                        <a class="btn_1" href="{{ route('bordereau.create') }}">Imprimer un bordereau</a>
+                                        <a class="btn_1" href="" data-toggle="modal" data-target="#exampleModalLong">Imprimer un bordereau</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,4 +88,131 @@ Bordereau
         </div>
     </div>
 </div>
+
+<style>
+    h5 {
+        font-weight: bold
+    }
+</style>
+
+<!-- modals ppup  -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Renseignez les donées avant l'impression</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('bordereau.store') }}" method="post" id="forms">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group  common_input mb_15">
+                                <h5>Nature des pièces</h5>
+                                <input name="naturePieceB" id="naturePieceB" class="form-control" type="text" placeholder="Saisir la nature des pièces">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group  common_input mb_15">
+                                <h5>Nombre de pièces</h5>
+                                <input name="nombrePieceB" id="nombrePieceB" class="form-control" type="number" placeholder="Entrer le nombre des pièces" min=0>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group  common_input mb_15">
+                                <h5>Destinataire</h5>
+                                <input name="destinataireB" id="destinataireB" class="form-control" type="text" placeholder="Saisir un destinataire">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group common_input mb_15">
+                                <h5>Observation</h5>
+                                <input name="observationB" id="observationB" class="form-control" type="text" placeholder="Entrer une observation" >
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h5>Signataire</h5>
+                            @if ($personnels = Personnel::all())
+                            <select name="idP" id="idP" class="form-group nice_Select2 nice_Select_line wide" style="display: none;" >
+                                <option value="" disabled>Selectionner un signataire</option>
+                                @foreach ($personnels as $personnel)
+                                <option value="{{$personnel->idP}}">{{$personnel->prenomP." ".$personnel->nomP}}</option>
+                                @endforeach
+                            </select>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-success">Imprimer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- modals ppup  -->
+@endsection
+
+@section('script')
+<script>
+    $(function() {
+      $('#forms').validate({
+        rules: {
+          naturePieceB: {
+            required: true
+          },
+          nombrePieceB: {
+            required: true,
+            min: 0,
+            number: true
+          },
+          observationB: {
+            required: true
+          },
+          destinataireB: {
+            required: true
+          },
+          idP: {
+            required: true,
+          }
+        },
+        messages: {
+          naturePieceB: {
+            required: "La nature est requise.",
+          },
+          nombrePieceB: {
+            required: "Le nombre de pièces est requise.",
+            min:'Le nombre doit être supérieure à 0',
+            number:'Le champ doit contenir un nombre'
+          },
+          observationB: {
+            required: "L'observation est requise.",
+          },
+          destinataireB: {
+            required: "Le destinataire est requis.",
+          },
+          idP: {
+            required: "La personne signataire du bordereau est requise.",
+          }
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+          error.addClass('invalid-feedback');
+          element.closest('.form-group').append(error);
+        },
+        highlight: function(element, errorClass, validClass) {
+          $(element).addClass('is-invalid');
+
+        },
+        unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('is-invalid');
+        }
+      });
+    });
+</script>
 @endsection

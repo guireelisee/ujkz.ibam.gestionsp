@@ -263,6 +263,10 @@
     <!-- footer  -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/main.d810cf0ae7f39f28f336.js') }}"></script>
+    <script src="{{ asset('js/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-validation/additional-methods.min.js') }}"></script>
+    <!-- popper js -->
     <!-- popper js -->
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <!-- bootstarp js -->
@@ -332,6 +336,8 @@
     <!-- custom js -->
     <script src="{{ asset('js/dashboard_init.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    @yield('script')
 </body>
 
 </html>

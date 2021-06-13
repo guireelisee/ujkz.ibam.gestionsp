@@ -26,7 +26,6 @@ Route::get('/', [DashboardController::class, 'index'])->name('index');
  * Routes pour Bordereau
  */
 Route::get('/bordereau', [BordereauController::class, 'index'])->name('bordereau.index');
-Route::get('/bordereau/saisie', [BordereauController::class, 'create'])->name('bordereau.create');
 Route::get('/bordereau/print', [BordereauController::class, 'printBordereau'])->name('bordereau.printBordereau');
 Route::post('/bordereau/saisie', [BordereauController::class, 'store'])->name('bordereau.store');
 

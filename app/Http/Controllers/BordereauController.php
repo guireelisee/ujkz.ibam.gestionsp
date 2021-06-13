@@ -36,14 +36,6 @@ class BordereauController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-            'naturePieceB' => 'required',
-            'nombrePieceB' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-            'observationB' => 'required',
-            'destinataireB' => 'required',
-            'idP' => 'required'
-        ]);
-
         $input = $request->all();
         $idB = Bordereau::create($input)->id;
         $idP = Bordereau::where('idB',$idB)->first()->idP;
