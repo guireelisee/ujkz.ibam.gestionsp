@@ -14,6 +14,7 @@ class Bordereau extends Model
         'naturePieceB',
         'nombrePieceB',
         'observationB',
-        'destinataireB'
+        'destinataireB',
+        'created_at'
     ];
 }

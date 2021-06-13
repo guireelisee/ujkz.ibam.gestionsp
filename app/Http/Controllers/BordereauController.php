@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bordereau;
 use Illuminate\Http\Request;
+use DataTables;
 
 class BordereauController extends Controller
 {
@@ -14,12 +15,19 @@ class BordereauController extends Controller
      */
     public function index()
     {
-        return view('pages.bordereau');
+        $bordereaus = Bordereau::all();
+        return view('pages.bordereau', compact('bordereaus'));
     }
 
     public function printBordereau()
     {
         return view('prints.printBordereau');
+    }
+
+    public static function getBordereau($id)
+    {
+        return Bordereau::where('idB',$id)->first();
+
     }
 
     /**

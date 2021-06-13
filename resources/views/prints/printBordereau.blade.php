@@ -1,5 +1,11 @@
-@extends('layouts.maquette')
+<?php
+use App\Http\Controllers\BordereauController;
+use App\Http\Controllers\PersonnelController;
+$idB = $_GET['idB'];
+$idP = $_GET['idP'];
+?>
 
+@extends('layouts.maquette')
 @section('objet')
 BORDEREAU <br>
 DES PIECES TRANSMISES <br>
@@ -10,7 +16,9 @@ A <br>
 @endsection
 
 @section('destinataire')
-Monsieur le Vice-Président chargée des Enseignements et des Innovations Pédagogiques de l’Université Joseph KI-ZERBO
+@if ( $bordereau = BordereauController::getBordereau($idB))
+    {{$bordereau->destinataireB}}
+@endif
 @endsection
 
 @section('corps')
@@ -26,11 +34,13 @@ Monsieur le Vice-Président chargée des Enseignements et des Innovations Pédag
                 </tr>
             </thead>
             <tbody>
+                @if ( $bordereau = BordereauController::getBordereau($idB))
                 <tr>
-                    <td>laborum id odit veniam repellat accusamus, voluptates iure esse architecto necessitatibus ex dolore! Minus facilis perferendis numquam officiis!</td>
-                    <td>Lorem, ipsum dolor sit amet</td>
-                    <th>Alias rem vitae laboriosam delectus tenetur doloremque magni, ut ea voluptates.</th>
+                    <td>{{$bordereau->naturePieceB}}</td>
+                    <td>{{$bordereau->nombrePieceB}}</td>
+                    <th>{{$bordereau->observationB}}</th>
                 </tr>
+                @endif
             </tbody>
         </table>
     </div>
@@ -42,10 +52,18 @@ Monsieur le Vice-Président chargée des Enseignements et des Innovations Pédag
     <div class="row text-center">
         <div class="col">
             <span>
-                <div style="margin: 2% 0% 0% 70%">
+                <div style="margin: 10% 0% 0% 70%">
+                    @if ( $bordereau = PersonnelController::getPersonnel($idP))
                     <span>
-                        Pour le Directeur de l’IBAM, et P/D le Secrétaire Principal
+                        @if ($bordereau->prenomP == "Ousmane")
+                            Pour le Directeur de l’IBAM, et P/D le Secrétaire Principal
+                        @else
+                            @if ( $personnel = PersonnelController::getPersonnel($idP))
+                                Par {{$personnel->prenomP." ".$personnel->nomP}}
+                            @endif
+                        @endif
                     </span>
+                    @endif
                 </div>
             </span>
         </div>
@@ -54,12 +72,15 @@ Monsieur le Vice-Président chargée des Enseignements et des Innovations Pédag
         <div class="col">
             <span>
                 <div style="margin: 5% 0% 0% 70%">
+                    @if ( $personnel = PersonnelController::getPersonnel($idP))
                     <u>
-                        Ousmane PAFADNAM
+                        {{$personnel->prenomP." ".$personnel->nomP}}
                     </u>
+                    @endif
                 </div>
             </span>
         </div>
     </div>
 </div>
 @endsection
+

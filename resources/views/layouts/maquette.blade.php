@@ -1,6 +1,6 @@
 
 <?php
-// header('Refresh:.0001; URL=');
+header("Refresh:.0001; URL=../Bordereau);
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +104,6 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col"></div>
-                <div class="col"></div>
                 <div class="col">
                     @yield('conjonction')
                 </div>
@@ -125,7 +124,7 @@
 
 @yield('signataire')
 
-{{-- <script type="text/javascript">window.print();</script> --}}
+<script type="text/javascript">window.print();</script>
 
 </body>
 

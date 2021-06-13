@@ -17,6 +17,12 @@ class PersonnelController extends Controller
         //
     }
 
+    public static function getPersonnel($id)
+    {
+        return Personnel::where('idP',$id)->first();
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -13,7 +13,7 @@ class CreateBordereausTable extends Migration
      */
     public function up()
     {
-        Schema::create('Bordereaus', function (Blueprint $table) {
+        Schema::create('bordereaus', function (Blueprint $table) {
             $table->bigIncrements('idB');
             $table->unsignedBigInteger('idP');
             $table->foreign('idP')

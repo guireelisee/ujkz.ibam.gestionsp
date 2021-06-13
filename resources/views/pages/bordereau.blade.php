@@ -14,14 +14,14 @@ Bordereau
                         <div class="white_card_header">
                             <div class="box_header m-0">
                                 <div class="main-title">
-                                    <h3 class="m-0">Data table 1</h3>
+                                    <h3 class="m-0">Bordereau</h3>
                                 </div>
                             </div>
                         </div>
                         <div class="white_card_body">
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
-                                    <h4>shorting Arrow</h4>
+                                    <h4>Historique</h4>
                                     <div class="box_right d-flex lms_block">
                                         <div class="serach_field_2">
                                             <div class="search_inner">
@@ -34,125 +34,45 @@ Bordereau
                                             </div>
                                         </div>
                                         <div class="add_button ml-10">
-                                            <a href="#" data-toggle="modal" data-target="#addcategory" class="btn_1">Add New</a>
+                                            <a href="#" data-toggle="modal" data-target="#addcategory" class="btn_1">Imprimer un bordereau</a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="QA_table mb_30">
                                     <!-- table-responsive -->
-                                    <table class="table lms_table_active3 " id="example">
+                                    <table id="basic-laratable" class="table lms_table_active3 ">
                                         <thead>
                                             <tr>
-                                                <th scope="col">title</th>
-                                                <th scope="col">Category</th>
-                                                <th scope="col">Teacher</th>
-                                                <th scope="col">Lesson</th>
-                                                <th scope="col">Enrolled</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Status</th>
+                                                <th scope="col">N°</th>
+                                                <th scope="col">Nature des pièces</th>
+                                                <th scope="col">Nombre des pièces</th>
+                                                <th scope="col">Observation</th>
+                                                <th scope="col">Destinataire</th>
+                                                <th scope="col">Signataire</th>
+                                                <th scope="col">Date de création</th>
+                                                <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> voir</a></th>
-                                                <td>OK</td>
-                                                <td>p</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
+                                            @foreach ($bordereaus as $bordereau)
+                                                 <tr>
+                                                <th scope="col">{{$bordereau->idB}}</th>
+                                                <th scope="col">{{$bordereau->naturePieceB}}</th>
+                                                <th scope="col">{{$bordereau->nombrePieceB}}</th>
+                                                <th scope="col">{{$bordereau->observationB}}</th>
+                                                <th scope="col">{{$bordereau->destinataireB}}</th>
+                                                <th scope="col">{{$bordereau->idP}}</th>
+                                                <th scope="col">{{date('d M y', strtotime($bordereau->created_at))}}</th>
+                                                <th scope="col">
+                                                    <form action="{{ route('bordereau.print', ['idB'=>$bordereau->idB,'idP'=>$bordereau->idP]),}}" method="post">
+                                                        @csrf
+                                                        @method('GET')
+                                                        <button class="btn btn-success" type="submit"><i class="fas fa-print"></i></button>
+                                                    </form>
+                                                </th>
                                             </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> quoi</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> <a href="#" class="question_content"> title here 1</a></th>
-                                                <td>Category name</td>
-                                                <td>Teacher James</td>
-                                                <td>Lessons name</td>
-                                                <td>16</td>
-                                                <td>$25.00</td>
-                                                <td><a href="#" class="status_btn">Active</a></td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

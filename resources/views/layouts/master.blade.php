@@ -280,7 +280,7 @@
     <script src="{{ asset('vendors/owl_carousel/js/owl.carousel.min.js') }}"></script>
 
     <!-- responsive table -->
-    {{-- <script src="{{ asset('vendors/datatable/js/jquery.dataTables.min.js') }}"></script> --}}
+    <script src="{{ asset('vendors/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendors/datatable/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('vendors/datatable/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('vendors/datatable/js/buttons.flash.min.js') }}"></script>
