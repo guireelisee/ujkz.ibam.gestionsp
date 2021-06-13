@@ -17,12 +17,6 @@ class PersonnelController extends Controller
         //
     }
 
-    public static function getPersonnel($id)
-    {
-        return Personnel::where('idP',$id)->first();
-
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -87,5 +81,19 @@ class PersonnelController extends Controller
     public function destroy(Personnel $personnel)
     {
         //
+    }
+
+    /**
+     * Méthodes utilisateurs
+     */
+
+    public static function getPersonnelById($id)
+    {
+        return Personnel::where('idP',$id)->first();
+    }
+
+    public static function getPersonnelByType($id)
+    {
+        return Personnel::where('idTP',$id)->first();
     }
 }

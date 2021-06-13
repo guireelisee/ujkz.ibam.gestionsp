@@ -53,12 +53,12 @@ A <br>
         <div class="col">
             <span>
                 <div style="margin: 10% 0% 0% 70%">
-                    @if ( $bordereau = PersonnelController::getPersonnel($idP))
+                    @if ( $bordereau = PersonnelController::getPersonnelById($idP))
                     <span>
                         @if ($bordereau->prenomP == "Ousmane")
                             Pour le Directeur de l’IBAM, et P/D le Secrétaire Principal
                         @else
-                            @if ( $personnel = PersonnelController::getPersonnel($idP))
+                            @if ( $personnel = PersonnelController::getPersonnelById($idP))
                                 Par {{$personnel->prenomP." ".$personnel->nomP}}
                             @endif
                         @endif
@@ -72,7 +72,7 @@ A <br>
         <div class="col">
             <span>
                 <div style="margin: 5% 0% 0% 70%">
-                    @if ( $personnel = PersonnelController::getPersonnel($idP))
+                    @if ( $personnel = PersonnelController::getPersonnelById($idP))
                     <u>
                         {{$personnel->prenomP." ".$personnel->nomP}}
                     </u>

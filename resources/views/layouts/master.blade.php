@@ -6,6 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('pageName') - A.C.W.E GEST | Votre logiciel de gestion d'actes administratifs</title>
 
     <link rel="icon" href="{{ asset('img/mini_logo.png') }}" type="image/png">
@@ -261,6 +262,7 @@
 
     <!-- footer  -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <!-- popper js -->
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <!-- bootstarp js -->
@@ -289,7 +291,7 @@
     <script src="{{ asset('vendors/datatable/js/vfs_fonts.js') }}"></script>
     <script src="{{ asset('vendors/datatable/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('vendors/datatable/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('vendors/datatable/js/main.d810cf0ae7f39f28f336.js') }}"></script>
+    {{-- <script src="{{ asset('vendors/datatable/js/main.d810cf0ae7f39f28f336.js') }}"></script> --}}
 
     <!-- datepicker  -->
     <script src="{{ asset('vendors/datepicker/datepicker.js') }}"></script>
@@ -332,5 +334,4 @@
     <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
-<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Jun 2021 14:04:54 GMT -->
 </html>

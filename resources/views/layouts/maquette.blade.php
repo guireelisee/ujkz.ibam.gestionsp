@@ -1,7 +1,7 @@
 
-<?php
-header("Refresh:.0001; URL=../Bordereau);
-?>
+@php
+header("Refresh:.0001; URL=../bordereau");
+@endphp
 
 <!DOCTYPE html>
 <html lang="en">

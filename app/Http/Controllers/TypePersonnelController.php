@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TypePersonnel;
+use App\Models\Personnel;
 use Illuminate\Http\Request;
 
 class TypePersonnelController extends Controller
@@ -15,6 +16,11 @@ class TypePersonnelController extends Controller
     public function index()
     {
         //
+    }
+
+    public static function getTypePersonnel($id)
+    {
+        return Personnel::where('idTP',$id)->first();
     }
 
     /**

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Bordereau;
 use Illuminate\Http\Request;
-use DataTables;
 
 class BordereauController extends Controller
 {
@@ -19,17 +18,6 @@ class BordereauController extends Controller
         return view('pages.bordereau', compact('bordereaus'));
     }
 
-    public function printBordereau()
-    {
-        return view('prints.printBordereau');
-    }
-
-    public static function getBordereau($id)
-    {
-        return Bordereau::where('idB',$id)->first();
-
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +25,7 @@ class BordereauController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.saisieBordereau');
     }
 
     /**
@@ -48,7 +36,18 @@ class BordereauController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+            'naturePieceB' => 'required',
+            'nombrePieceB' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            'observationB' => 'required',
+            'destinataireB' => 'required',
+            'idP' => 'required'
+        ]);
+
+        $input = $request->all();
+        $idB = Bordereau::create($input)->id;
+        $idP = Bordereau::where('idB',$idB)->first()->idP;
+        return redirect()->route('bordereau.printBordereau', ['idB'=>$idB,'idP'=>$idP]);
     }
 
     /**
@@ -95,4 +94,20 @@ class BordereauController extends Controller
     {
         //
     }
+
+    /**
+     * Méthodes utilisateurs
+     */
+
+
+    public function printBordereau()
+    {
+        return view('prints.printBordereau');
+    }
+
+    public static function getBordereau($id)
+    {
+        return Bordereau::where('idB',$id)->first();
+    }
+
 }
