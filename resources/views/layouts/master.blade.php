@@ -192,7 +192,7 @@
                 </a>
                 <ul>
                     <li><a href="#">Ampliations</a></li>
-                    <li><a href="#">Civilités</a></li>
+                    <li><a href="{{ route('civilite.index') }}">Civilités</a></li>
                     <li><a href="#">Utilisateurs</a></li>
                 </ul>
             </li>

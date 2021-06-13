@@ -12,4 +12,6 @@ class Ampliation extends Model
         'idAmp',
         'intituleAmp'
     ];
+
+    protected $primaryKey = 'idAmp';
 }

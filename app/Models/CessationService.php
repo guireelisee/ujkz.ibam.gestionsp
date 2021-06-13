@@ -15,4 +15,6 @@ class CessationService extends Model
         'dateDecisionCS',
         'dateFinServiceCS'
     ];
+
+    protected $primaryKey = 'idCS';
 }

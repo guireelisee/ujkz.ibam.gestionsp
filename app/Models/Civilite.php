@@ -12,4 +12,6 @@ class Civilite extends Model
         'idCivilite',
         'intituleCivilite'
     ];
+
+    protected $primaryKey ='idCivilite';
 }

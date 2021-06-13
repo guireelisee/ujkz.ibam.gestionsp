@@ -16,4 +16,6 @@ class AutorisationAbsence extends Model
         'dateDepartAA',
         'dateRetourAA'
     ];
+
+    protected $primaryKey = 'idAA';
 }

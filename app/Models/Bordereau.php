@@ -17,4 +17,6 @@ class Bordereau extends Model
         'destinataireB',
         'created_at'
     ];
+
+    protected $primaryKey = 'idB';
 }

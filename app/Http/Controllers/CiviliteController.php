@@ -14,7 +14,8 @@ class CiviliteController extends Controller
      */
     public function index()
     {
-        //
+        $civilites = Civilite::all();
+        return view('pages.civilite', compact('civilites'));
     }
 
     /**
@@ -35,7 +36,8 @@ class CiviliteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Civilite::create($request->all());
+        return redirect()->route('civilite.index')->with('success','Civilité ajoutée avec succès.');
     }
 
     /**
@@ -80,6 +82,7 @@ class CiviliteController extends Controller
      */
     public function destroy(Civilite $civilite)
     {
-        //
+        $civilite->delete();
+        return redirect()->route('civilite.index')->with('success','Civilité supprimée avec succès.');
     }
 }
