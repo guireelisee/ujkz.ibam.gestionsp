@@ -193,6 +193,11 @@
                 <ul>
                     <li><a href="#">Ampliations</a></li>
                     <li><a href="{{ route('civilite.index') }}">Civilités</a></li>
+                    <li><a href="#">Filières</a></li>
+                    <li><a href="#">Salles</a></li>
+                    <li><a href="#">Fonctions</a></li>
+                    <li><a href="#">Titres</a></li>
+                    <li><a href="#">Types</a></li>
                     <li><a href="#">Utilisateurs</a></li>
                 </ul>
             </li>

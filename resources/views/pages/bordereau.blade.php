@@ -49,7 +49,7 @@ Bordereau
                                 <table class="table lms_table_active3 ">
                                     <thead>
                                         <tr>
-                                            <th scope="col">N°</th>
+                                            <th scope="col">#</th>
                                             <th scope="col">Nature des pièces</th>
                                             <th scope="col">Nombre des pièces</th>
                                             <th scope="col">Observation</th>

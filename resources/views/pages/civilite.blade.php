@@ -40,7 +40,7 @@ Civilité
                                 <table class="table lms_table_active3 ">
                                     <thead>
                                         <tr>
-                                            <th scope="col">N°</th>
+                                            <th scope="col">#</th>
                                             <th scope="col">Intitulé</th>
                                             <th scope="col">Actions</th>
                                         </tr>
@@ -52,6 +52,7 @@ Civilité
                                             <th scope="col">{{$civilite->intituleCivilite}}</th>
                                             <th scope="col">
                                                 <form action="{{ route('civilite.destroy', $civilite->idCivilite)}}" method="POST">
+                                                    <a class="btn btn-alternate" href="{{ route('civilite.edit',$civilite->idCivilite) }}"><i class="fas fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
