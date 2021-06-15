@@ -6,7 +6,7 @@ use App\Models\FonctionPersonnel;
 use App\Models\FonctionVisiteur;
 use Illuminate\Http\Request;
 
-class FonctionController extends Controller
+class FonctionsController extends Controller
 {
     /**
      * Display a listing of the resource.

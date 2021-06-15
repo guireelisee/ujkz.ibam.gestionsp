@@ -36,14 +36,21 @@ Route::resource('civilite', CiviliteController::class);
 /**
  * Routes pour titres
  */
-Route::resource('titres', TitreController::class);
-Route::get('titre.destroyV', 'TitreController@destroyV')->name('titre.destroyV');
-Route::get('titre.destroyP', 'TitreController@destroyP')->name('titre.destroyP');
+Route::resource('titres', TitresController::class);
+Route::get('titre.destroyV', 'TitresController@destroyV')->name('titre.destroyV');
+Route::get('titre.destroyP', 'TitresController@destroyP')->name('titre.destroyP');
 
 /**
  * Routes pour fonctions
  */
-Route::resource('fonctions', FonctionController::class);
-Route::get('fonction.destroyV', 'FonctionController@destroyV')->name('fonction.destroyV');
-Route::get('fonction.destroyP', 'FonctionController@destroyP')->name('fonction.destroyP');
+Route::resource('fonctions', FonctionsController::class);
+Route::get('fonction.destroyV', 'FonctionsController@destroyV')->name('fonction.destroyV');
+Route::get('fonction.destroyP', 'FonctionsController@destroyP')->name('fonction.destroyP');
+
+/**
+ * Routes pour types
+ */
+Route::resource('types', TypesController::class);
+Route::get('fonction.destroyV', 'TypesController@destroyV')->name('fonction.destroyV');
+Route::get('fonction.destroyP', 'TypesController@destroyP')->name('fonction.destroyP');
 

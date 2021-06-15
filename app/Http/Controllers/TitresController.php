@@ -6,7 +6,7 @@ use App\Models\TitrePersonnel;
 use App\Models\TitreVisiteur;
 use Illuminate\Http\Request;
 
-class TitreController extends Controller
+class TitresController extends Controller
 {
     /**
     * Display a listing of the resource.
