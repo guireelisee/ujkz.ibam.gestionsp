@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pageName')
-Titres disponibles
+Fonctions disponibles
 @endsection
 
 @section('pageContent')
@@ -21,7 +21,7 @@ Titres disponibles
                     <div class="white_card_header">
                         <div class="box_header m-0">
                             <div class="main-title">
-                                <h3 class="m-0">Titres disponibles</h3>
+                                <h3 class="m-0">Fonctions disponibles</h3>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ Titres disponibles
                                 <div></div>
                                 <div class="box_right d-flex lms_block">
                                     <div class="add_button ml-10">
-                                        <a class="btn_1" href="" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter un titre</a>
+                                        <a class="btn_1" href="" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter une fonction</a>
                                     </div>
                                 </div>
                             </div>
@@ -41,20 +41,20 @@ Titres disponibles
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Titre</th>
+                                            <th scope="col">Fonction</th>
                                             <th scope="col">Corps</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($titresP as $titreP)
+                                        @foreach ($fonctionsP as $fonctionP)
                                         <tr>
-                                            <th scope="col">{{$titreP->idTitreP}}</th>
-                                            <th scope="col">{{$titreP->intituleTitreP}}</th>
+                                            <th scope="col">{{$fonctionP->idFonctionP}}</th>
+                                            <th scope="col">{{$fonctionP->intituleFonctionP}}</th>
                                             <th scope="col">Personnel</th>
                                             <th scope="col">
-                                                <form action="{{ route('titre.destroyP', ['id'=>$titreP->idTitreP])}}" method="POST">
-                                                    {{-- <a class="btn btn-alternate" href="{{ route('titre.edit',$titre->idtitre) }}"><i class="fas fa-edit"></i></a> --}}
+                                                <form action="{{ route('fonction.destroyP', ['id'=>$fonctionP->idFonctionP])}}" method="POST">
+                                                    {{-- <a class="btn btn-alternate" href="{{ route('fonction.edit',$fonction->idfonction) }}"><i class="fas fa-edit"></i></a> --}}
                                                     @csrf
                                                     @method('HEAD')
                                                     <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
@@ -62,16 +62,16 @@ Titres disponibles
                                             </th>
                                         </tr>
                                         @endforeach
-                                        @foreach ($titresV as $titreV)
+                                        @foreach ($fonctionsV as $fonctionV)
                                         <tr>
-                                            <th scope="col">{{$titreV->idTitreV}}</th>
-                                            <th scope="col">{{$titreV->intituleTitreV}}</th>
+                                            <th scope="col">{{$fonctionV->idFonctionV}}</th>
+                                            <th scope="col">{{$fonctionV->intituleFonctionV}}</th>
                                             <th scope="col">Visiteur</th>
                                             <th scope="col">
-                                                <form action="{{ route('titre.destroyV', ['id'=>$titreV->idTitreV])}}" method="POST">
-                                                    {{-- <a class="btn btn-alternate" href="{{ route('titre.edit',$titre->idtitre) }}"><i class="fas fa-edit"></i></a> --}}
+                                                <form action="{{ route('fonction.destroyV', ['id'=>$fonctionV->idFonctionV])}}" method="POST">
+                                                    {{-- <a class="btn btn-alternate" href="{{ route('fonction.edit',$fonction->idfonction) }}"><i class="fas fa-edit"></i></a> --}}
                                                     @csrf
-                                                    @method('GET')
+                                                    @method('HEAD')
                                                     <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
                                                 </form>
                                             </th>
@@ -100,19 +100,19 @@ Titres disponibles
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ajout d'un nouveau titre</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ajout d'une nouvelle fonction</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('titre.store') }}" method="post" id="forms">
+                <form action="{{ route('fonction.store') }}" method="post" id="forms">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group common_input mb_15">
                                 <h5>Intitulé</h5>
-                                <input name="titre" id="titre" class="form-control" type="text" placeholder="Renseigner un titre">
+                                <input name="fonction" id="fonction" class="form-control" type="text" placeholder="Renseigner un fonction">
                             </div>
                         </div>
                     </div>
@@ -143,13 +143,13 @@ Titres disponibles
             $(function() {
                 $('#forms').validate({
                     rules: {
-                        titre: {
+                        fonction: {
                             required: true
                         }
                     },
                     messages: {
-                        titre: {
-                            required: "Le titre est requis.",
+                        fonction: {
+                            required: "La fonction est requise.",
                         }
                     },
                     errorElement: 'span',

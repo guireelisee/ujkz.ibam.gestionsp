@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BordereauController;
 
 
 /*
@@ -20,7 +18,7 @@ use App\Http\Controllers\BordereauController;
  * Routes pour Dashboard
  */
 
-Route::get('/', [DashboardController::class, 'index'])->name('index');
+Route::get('/', 'DashboardController@index')->name('index');
 
 /**
  * Routes pour Bordereau
@@ -41,4 +39,11 @@ Route::resource('civilite', CiviliteController::class);
 Route::resource('titre', TitreController::class);
 Route::get('titre.destroyV', 'TitreController@destroyV')->name('titre.destroyV');
 Route::get('titre.destroyP', 'TitreController@destroyP')->name('titre.destroyP');
+
+/**
+ * Routes pour fonctions
+ */
+Route::resource('fonction', FonctionController::class);
+Route::get('fonction.destroyV', 'FonctionController@destroyV')->name('fonction.destroyV');
+Route::get('fonction.destroyP', 'FonctionController@destroyP')->name('fonction.destroyP');
 
