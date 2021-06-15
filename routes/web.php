@@ -36,14 +36,14 @@ Route::resource('civilite', CiviliteController::class);
 /**
  * Routes pour titres
  */
-Route::resource('titre', TitreController::class);
+Route::resource('titres', TitreController::class);
 Route::get('titre.destroyV', 'TitreController@destroyV')->name('titre.destroyV');
 Route::get('titre.destroyP', 'TitreController@destroyP')->name('titre.destroyP');
 
 /**
  * Routes pour fonctions
  */
-Route::resource('fonction', FonctionController::class);
+Route::resource('fonctions', FonctionController::class);
 Route::get('fonction.destroyV', 'FonctionController@destroyV')->name('fonction.destroyV');
 Route::get('fonction.destroyP', 'FonctionController@destroyP')->name('fonction.destroyP');
 

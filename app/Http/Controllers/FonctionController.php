@@ -17,7 +17,7 @@ class FonctionController extends Controller
     {
         $fonctionsP = FonctionPersonnel::all();
         $fonctionsV = FonctionVisiteur::all();
-        return view('pages.fonction', compact(['fonctionsP','fonctionsV']));
+        return view('pages.fonctions', compact(['fonctionsP','fonctionsV']));
     }
 
     /**
@@ -42,12 +42,12 @@ class FonctionController extends Controller
             $fonctionP = new FonctionPersonnel;
             $fonctionP->intituleFonctionP = request('fonction');
             $fonctionP->save();
-            return redirect()->route('fonction.index')->with('success','Fonction du personnel ajouté avec succès.');
+            return redirect()->route('fonctions.index')->with('success','Fonction du personnel ajoutée avec succès.');
         } else if ($_POST['corps'] === "V") {
             $fonctionV = new FonctionVisiteur;
             $fonctionV->intituleFonctionV = request('fonction');
             $fonctionV->save();
-            return redirect()->route('fonction.index')->with('success','Fonction du visiteur ajouté avec succès.');
+            return redirect()->route('fonctions.index')->with('success','Fonction du visiteur ajoutée avec succès.');
         }
     }
 
@@ -96,7 +96,7 @@ class FonctionController extends Controller
         $id = $_GET['id'];
         $fonctionPersonnel = FonctionPersonnel::where('idFonctionP',$id)->first();
         $fonctionPersonnel->delete();
-        return redirect()->route('fonction.index')->with('success','Fonction supprimé avec succès.');
+        return redirect()->route('fonctions.index')->with('success','Fonction supprimée avec succès.');
     }
 
     /**
@@ -110,6 +110,6 @@ class FonctionController extends Controller
         $id = $_GET['id'];
         $fonctionVisiteur = FonctionVisiteur::where('idFonctionV',$id)->first();
         $fonctionVisiteur->delete();
-        return redirect()->route('fonction.index')->with('success','Fonction supprimé avec succès.');
+        return redirect()->route('fonctions.index')->with('success','Fonction supprimée avec succès.');
     }
 }

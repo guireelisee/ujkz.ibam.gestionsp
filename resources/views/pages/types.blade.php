@@ -106,7 +106,7 @@ Fonctions disponibles
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('fonction.store') }}" method="post" id="forms">
+                <form action="{{ route('fonctions.store') }}" method="post" id="forms">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">

@@ -17,7 +17,7 @@ class TitreController extends Controller
     {
         $titresP = TitrePersonnel::all();
         $titresV = TitreVisiteur::all();
-        return view('pages.titre', compact(['titresP','titresV']));
+        return view('pages.titres', compact(['titresP','titresV']));
     }
 
     /**
@@ -42,12 +42,12 @@ class TitreController extends Controller
             $titreP = new TitrePersonnel;
             $titreP->intituleTitreP = request('titre');
             $titreP->save();
-            return redirect()->route('titre.index')->with('success','Titre du personnel ajouté avec succès.');
+            return redirect()->route('titres.index')->with('success','Titre du personnel ajouté avec succès.');
         } else if ($_POST['corps'] === "V") {
             $titreV = new TitreVisiteur;
             $titreV->intituleTitreV = request('titre');
             $titreV->save();
-            return redirect()->route('titre.index')->with('success','Titre du visiteur ajouté avec succès.');
+            return redirect()->route('titres.index')->with('success','Titre du visiteur ajouté avec succès.');
         }
     }
 
@@ -96,7 +96,7 @@ class TitreController extends Controller
         $id = $_GET['id'];
         $titrePersonnel = TitrePersonnel::where('idTitreP',$id)->first();
         $titrePersonnel->delete();
-        return redirect()->route('titre.index')->with('success','Titre supprimé avec succès.');
+        return redirect()->route('titres.index')->with('success','Titre supprimé avec succès.');
     }
 
     /**
@@ -110,6 +110,6 @@ class TitreController extends Controller
         $id = $_GET['id'];
         $titreVisiteur = TitreVisiteur::where('idTitreV',$id)->first();
         $titreVisiteur->delete();
-        return redirect()->route('titre.index')->with('success','Titre supprimé avec succès.');
+        return redirect()->route('titres.index')->with('success','Titre supprimé avec succès.');
     }
 }
