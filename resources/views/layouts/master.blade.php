@@ -196,7 +196,7 @@
                     <li><a href="#">Filières</a></li>
                     <li><a href="#">Salles</a></li>
                     <li><a href="#">Fonctions</a></li>
-                    <li><a href="#">Titres</a></li>
+                    <li><a href="{{ route('titre.index')}}">Titres</a></li>
                     <li><a href="#">Types</a></li>
                     <li><a href="#">Utilisateurs</a></li>
                 </ul>

@@ -31,8 +31,14 @@ Route::post('/bordereau/saisie', 'BordereauController@store')->name('bordereau.s
 
 
 /**
- * Routes pour civlite
+ * Routes pour civilite
  */
-Route::resource('<civilite>
-idCivilite', CiviliteController::class);
+Route::resource('civilite', CiviliteController::class);
+
+/**
+ * Routes pour titres
+ */
+Route::resource('titre', TitreController::class);
+Route::get('titre.destroyV', 'TitreController@destroyV')->name('titre.destroyV');
+Route::get('titre.destroyP', 'TitreController@destroyP')->name('titre.destroyP');
 
