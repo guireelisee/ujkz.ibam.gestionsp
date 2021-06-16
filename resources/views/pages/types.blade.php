@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pageName')
-Fonctions disponibles
+Types disponibles
 @endsection
 
 @section('pageContent')
@@ -21,7 +21,7 @@ Fonctions disponibles
                     <div class="white_card_header">
                         <div class="box_header m-0">
                             <div class="main-title">
-                                <h3 class="m-0">Fonctions disponibles</h3>
+                                <h3 class="m-0">Types disponibles</h3>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ Fonctions disponibles
                                 <div></div>
                                 <div class="box_right d-flex lms_block">
                                     <div class="add_button ml-10">
-                                        <a class="btn_1" href="" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter une fonction</a>
+                                        <a class="btn_1" href="" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter un type</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,13 +47,13 @@ Fonctions disponibles
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($fonctionsP as $fonctionP)
+                                        @foreach ($typesPersonnel as $typePersonnel)
                                         <tr>
-                                            <th scope="col">{{$fonctionP->idFonctionP}}</th>
-                                            <th scope="col">{{$fonctionP->intituleFonctionP}}</th>
+                                            <th scope="col">{{$typePersonnel->idTP}}</th>
+                                            <th scope="col">{{$typePersonnel->intituleTP}}</th>
                                             <th scope="col">Personnel</th>
                                             <th scope="col">
-                                                <form action="{{ route('fonction.destroyP', ['id'=>$fonctionP->idFonctionP])}}" method="POST">
+                                                <form action="{{ route('types.destroyP', ['id'=>$typePersonnel->idTP])}}" method="POST">
                                                     {{-- <a class="btn btn-alternate" href="{{ route('fonction.edit',$fonction->idfonction) }}"><i class="fas fa-edit"></i></a> --}}
                                                     @csrf
                                                     @method('HEAD')
@@ -62,13 +62,28 @@ Fonctions disponibles
                                             </th>
                                         </tr>
                                         @endforeach
-                                        @foreach ($fonctionsV as $fonctionV)
+                                        @foreach ($typesReunion as $typeReunion)
                                         <tr>
-                                            <th scope="col">{{$fonctionV->idFonctionV}}</th>
-                                            <th scope="col">{{$fonctionV->intituleFonctionV}}</th>
-                                            <th scope="col">Visiteur</th>
+                                            <th scope="col">{{$typeReunion->idTR}}</th>
+                                            <th scope="col">{{$typeReunion->intituleTR}}</th>
+                                            <th scope="col">Réunion</th>
                                             <th scope="col">
-                                                <form action="{{ route('fonction.destroyV', ['id'=>$fonctionV->idFonctionV])}}" method="POST">
+                                                <form action="{{ route('types.destroyR', ['id'=>$typeReunion->idTR])}}" method="POST">
+                                                    {{-- <a class="btn btn-alternate" href="{{ route('fonction.edit',$fonction->idfonction) }}"><i class="fas fa-edit"></i></a> --}}
+                                                    @csrf
+                                                    @method('HEAD')
+                                                    <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                                                </form>
+                                            </th>
+                                        </tr>
+                                        @endforeach
+                                        @foreach ($typesMission as $typeMission)
+                                        <tr>
+                                            <th scope="col">{{$typeMission->idTM}}</th>
+                                            <th scope="col">{{$typeMission->intituleTM}}</th>
+                                            <th scope="col">Mission</th>
+                                            <th scope="col">
+                                                <form action="{{ route('types.destroyM', ['id'=>$typeMission->idTM])}}" method="POST">
                                                     {{-- <a class="btn btn-alternate" href="{{ route('fonction.edit',$fonction->idfonction) }}"><i class="fas fa-edit"></i></a> --}}
                                                     @csrf
                                                     @method('HEAD')
@@ -100,19 +115,19 @@ Fonctions disponibles
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ajout d'une nouvelle fonction</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ajout d'un nouveau type</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('fonctions.store') }}" method="post" id="forms">
+                <form action="{{ route('types.store') }}" method="post" id="forms">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group common_input mb_15">
                                 <h5>Intitulé</h5>
-                                <input name="fonction" id="fonction" class="form-control" type="text" placeholder="Renseigner un fonction">
+                                <input name="type" id="type" class="form-control" type="text" placeholder="Renseigner un type...">
                             </div>
                         </div>
                     </div>
@@ -123,7 +138,8 @@ Fonctions disponibles
                                 <select name="corps" id="corps" class="form-group nice_Select2 nice_Select_line wide" style="display: none;" >
                                     <option value="" disabled>Selectionner un corps</option>
                                     <option value="P">Personnel</option>
-                                    <option value="V">Visiteur</option>
+                                    <option value="R">Réunion</option>
+                                    <option value="M">Mission</option>
                                 </select>                            </div>
                             </div>
                         </div>
@@ -143,13 +159,13 @@ Fonctions disponibles
             $(function() {
                 $('#forms').validate({
                     rules: {
-                        fonction: {
+                        type: {
                             required: true
                         }
                     },
                     messages: {
-                        fonction: {
-                            required: "La fonction est requise.",
+                        type: {
+                            required: "Le type est requis.",
                         }
                     },
                     errorElement: 'span',

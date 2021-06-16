@@ -12,4 +12,7 @@ class TypeMission extends Model
         'idTM',
         'intituleTM'
     ];
+
+        protected $primaryKey = 'idTM';
+
 }

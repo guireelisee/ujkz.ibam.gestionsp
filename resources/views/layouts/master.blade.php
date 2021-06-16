@@ -197,7 +197,7 @@
                     <li><a href="#">Salles</a></li>
                     <li><a href="{{ route('fonctions.index') }}">Fonctions</a></li>
                     <li><a href="{{ route('titres.index')}}">Titres</a></li>
-                    <li><a href="#">Types</a></li>
+                    <li><a href="{{ route('types.index') }}">Types</a></li>
                     <li><a href="#">Utilisateurs</a></li>
                 </ul>
             </li>

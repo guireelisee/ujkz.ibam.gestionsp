@@ -48,9 +48,10 @@ Route::get('fonction.destroyV', 'FonctionsController@destroyV')->name('fonction.
 Route::get('fonction.destroyP', 'FonctionsController@destroyP')->name('fonction.destroyP');
 
 /**
- * Routes pour types
+ * Routes pour types (missions, personnels, réunions)
  */
 Route::resource('types', TypesController::class);
-Route::get('fonction.destroyV', 'TypesController@destroyV')->name('fonction.destroyV');
-Route::get('fonction.destroyP', 'TypesController@destroyP')->name('fonction.destroyP');
+Route::get('types.destroyP', 'TypesController@destroyP')->name('types.destroyP');
+Route::get('types.destroyR', 'TypesController@destroyR')->name('types.destroyR');
+Route::get('types.destroyM', 'TypesController@destroyM')->name('types.destroyM');
 

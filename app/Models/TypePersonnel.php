@@ -12,4 +12,7 @@ class TypePersonnel extends Model
         'idTP',
         'intituleTP'
     ];
+
+        protected $primaryKey = 'idTP';
+
 }
