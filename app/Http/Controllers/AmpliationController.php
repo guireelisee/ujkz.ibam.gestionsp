@@ -14,7 +14,8 @@ class AmpliationController extends Controller
      */
     public function index()
     {
-        //
+        $ampliations = Ampliation::all();
+        return view('pages.ampliations', compact('ampliations'));
     }
 
     /**
@@ -35,7 +36,8 @@ class AmpliationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Ampliation::create($request->all());
+        return redirect()->route('ampliations.index')->with('success','Ampliation ajoutée avec succès.');
     }
 
     /**
@@ -80,6 +82,7 @@ class AmpliationController extends Controller
      */
     public function destroy(Ampliation $ampliation)
     {
-        //
+        $ampliation->delete();
+        return redirect()->route('ampliations.index')->with('success','Ampliation supprimée avec succès.');
     }
 }

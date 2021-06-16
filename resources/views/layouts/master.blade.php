@@ -191,10 +191,10 @@
                     </div>
                 </a>
                 <ul>
-                    <li><a href="#">Ampliations</a></li>
+                    <li><a href="{{ route('ampliations.index') }}">Ampliations</a></li>
                     <li><a href="{{ route('civilite.index') }}">Civilités</a></li>
-                    <li><a href="#">Filières</a></li>
-                    <li><a href="#">Salles</a></li>
+                    <li><a href="{{ route('filieres.index') }}">Filières</a></li>
+                    <li><a href="{{ route('salles.index') }}">Salles</a></li>
                     <li><a href="{{ route('fonctions.index') }}">Fonctions</a></li>
                     <li><a href="{{ route('titres.index')}}">Titres</a></li>
                     <li><a href="{{ route('types.index') }}">Types</a></li>

@@ -14,7 +14,8 @@ class SalleController extends Controller
      */
     public function index()
     {
-        //
+        $salles = Salle::all();
+        return view('pages.salles', compact('salles'));
     }
 
     /**
@@ -35,7 +36,8 @@ class SalleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Salle::create($request->all());
+        return redirect()->route('salles.index')->with('success','Salle ajoutée avec succès.');
     }
 
     /**
@@ -80,6 +82,7 @@ class SalleController extends Controller
      */
     public function destroy(Salle $salle)
     {
-        //
+        $salle->delete();
+        return redirect()->route('salles.index')->with('success','Salle supprimée avec succès.');
     }
 }

@@ -55,3 +55,18 @@ Route::get('types.destroyP', 'TypesController@destroyP')->name('types.destroyP')
 Route::get('types.destroyR', 'TypesController@destroyR')->name('types.destroyR');
 Route::get('types.destroyM', 'TypesController@destroyM')->name('types.destroyM');
 
+/**
+ * Routes pour salles
+ */
+Route::resource('salles', SalleController::class);
+
+/**
+ * Routes pour ampliations
+ */
+Route::resource('ampliations', AmpliationController::class);
+
+/**
+ * Routes pour filieres
+ */
+Route::resource('filieres', FiliereController::class);
+

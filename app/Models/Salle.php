@@ -12,4 +12,6 @@ class Salle extends Model
         'idSalle',
         'intituleSalle'
     ];
+
+    protected $primaryKey = 'idSalle';
 }

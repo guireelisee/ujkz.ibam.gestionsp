@@ -41,7 +41,7 @@ Types disponibles
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Fonction</th>
+                                            <th scope="col">Type</th>
                                             <th scope="col">Corps</th>
                                             <th scope="col">Actions</th>
                                         </tr>
