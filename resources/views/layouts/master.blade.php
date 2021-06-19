@@ -152,7 +152,7 @@
                 </a>
             </li>
             <li class="">
-                <a href="#" aria-expanded="false">
+                <a href="{{ route('personnels.index') }}" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="img/menu-icon/dashboard.svg" alt="">
                     </div>

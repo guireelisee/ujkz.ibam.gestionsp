@@ -24,4 +24,6 @@ class Personnel extends Model
         'motifPServ',
         'datePServ'
     ];
+
+    protected $primaryKey = 'idP';
 }
