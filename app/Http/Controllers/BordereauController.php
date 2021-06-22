@@ -41,8 +41,6 @@ class BordereauController extends Controller
     {
         $input = $request->all();
         $bordereau = Bordereau::create($input);
-
-        // dd($bordereau);
         $personnels = Personnel::all();
 
         return view('pages.bordereau.print', compact('bordereau','personnels'));
@@ -90,7 +88,7 @@ class BordereauController extends Controller
      */
     public function destroy(Bordereau $Bordereau)
     {
-        $Bordereau = Bordereau::where('idB',$_P['id']);
+        $Bordereau = Bordereau::where('idB',$_POST['id']);
         $Bordereau->delete();
         return redirect()->route('pages.bordereau.index')->with('success','Bordereau supprimé avec succès.');
     }
@@ -101,7 +99,9 @@ class BordereauController extends Controller
 
     public function print()
     {
-        return view('pages.bordereau.print');
+        $bordereau = Bordereau::where('idB',$_GET['idB'])->first();
+        $personnels = Personnel::all();
+        return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
 
 }

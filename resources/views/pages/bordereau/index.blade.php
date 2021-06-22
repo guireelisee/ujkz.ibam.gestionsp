@@ -71,7 +71,11 @@
                                             </form>
                                         </div>
                                         <div class="col-xl-3 col-md-3">
-                                            <a name="" id="" class="btn btn-success" href="{{ route('bordereau.print', $bordereau->idB) }}" role="button"><i class="fas fa-print"></i></a>
+                                            <form action="{{ route('bordereau.print', ['idB'=>$bordereau->idB]) }}" method="POST">
+                                                @csrf
+                                                @method('POST')
+                                                  <button type="submit" class="btn btn-success"><i class="fas fa-print"></i></button>
+                                            </form>
                                         </div>
                                     </div>
                             </th>

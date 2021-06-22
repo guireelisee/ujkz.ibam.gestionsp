@@ -1,6 +1,6 @@
 
 @php
-header("Refresh:.0001; URL=../bordereau");
+// header("Refresh:.0001; URL=../bordereau");
 @endphp
 
 <!DOCTYPE html>
@@ -124,7 +124,7 @@ header("Refresh:.0001; URL=../bordereau");
 
 @yield('signataire')
 
-<script type="text/javascript">window.print();</script>
+{{-- <script type="text/javascript">window.print();</script> --}}
 
 </body>
 
