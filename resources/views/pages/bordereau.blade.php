@@ -10,8 +10,16 @@ Bordereau
 @endsection
 
 @section('pageContent')
+
 <!--/ menu  -->
 <div class="main_content_iner ">
+
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
     <div class="container-fluid p-0">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -73,7 +81,14 @@ Bordereau
                                                 <form action="{{ route('bordereau.printBordereau', ['idB'=>$bordereau->idB,'idP'=>$bordereau->idP])}}" method="POST">
                                                     @csrf
                                                     @method('GET')
-                                                    <button class="btn btn-success" type="submit"><i class="fas fa-print"></i></button>
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <a name="" id="" class="btn btn-danger" href="{{ route('bordereau.destroy', ['id'=>$bordereau->idB]) }}" role="button"> <i class="fas fa-trash"></i></a>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <button class="btn btn-success" type="submit"><i class="fas fa-print"></i></button>
+                                                        </div>
+                                                    </div>
                                                 </form>
                                             </th>
                                         </tr>
@@ -161,58 +176,58 @@ Bordereau
 @section('script')
 <script>
     $(function() {
-      $('#forms').validate({
-        rules: {
-          naturePieceB: {
-            required: true
-          },
-          nombrePieceB: {
-            required: true,
-            min: 0,
-            number: true
-          },
-          observationB: {
-            required: true
-          },
-          destinataireB: {
-            required: true
-          },
-          idP: {
-            required: true,
-          }
-        },
-        messages: {
-          naturePieceB: {
-            required: "La nature est requise.",
-          },
-          nombrePieceB: {
-            required: "Le nombre de pièces est requise.",
-            min:'Le nombre doit être supérieure à 0',
-            number:'Le champ doit contenir un nombre'
-          },
-          observationB: {
-            required: "L'observation est requise.",
-          },
-          destinataireB: {
-            required: "Le destinataire est requis.",
-          },
-          idP: {
-            required: "La personne signataire du bordereau est requise.",
-          }
-        },
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-          error.addClass('invalid-feedback');
-          element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-          $(element).addClass('is-invalid');
+        $('#forms').validate({
+            rules: {
+                naturePieceB: {
+                    required: true
+                },
+                nombrePieceB: {
+                    required: true,
+                    min: 0,
+                    number: true
+                },
+                observationB: {
+                    required: true
+                },
+                destinataireB: {
+                    required: true
+                },
+                idP: {
+                    required: true,
+                }
+            },
+            messages: {
+                naturePieceB: {
+                    required: "La nature est requise.",
+                },
+                nombrePieceB: {
+                    required: "Le nombre de pièces est requise.",
+                    min:'Le nombre doit être supérieure à 0',
+                    number:'Le champ doit contenir un nombre'
+                },
+                observationB: {
+                    required: "L'observation est requise.",
+                },
+                destinataireB: {
+                    required: "Le destinataire est requis.",
+                },
+                idP: {
+                    required: "La personne signataire du bordereau est requise.",
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
 
-        },
-        unhighlight: function(element, errorClass, validClass) {
-          $(element).removeClass('is-invalid');
-        }
-      });
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
     });
 </script>
 @endsection

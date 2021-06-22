@@ -37,8 +37,10 @@ class BordereauController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $idB = Bordereau::create($input)->id;
-        $idP = Bordereau::where('idB',$idB)->first()->idP;
+
+        $idB = Bordereau::create($input)->idB;
+        $idP = $request->idP;
+
         return redirect()->route('bordereau.printBordereau', ['idB'=>$idB,'idP'=>$idP]);
     }
 
@@ -82,9 +84,11 @@ class BordereauController extends Controller
      * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bordereau $Bordereau)
+    public function destroy()
     {
-        //
+        $Bordereau = Bordereau::where('idB',$_GET['id']);
+        $Bordereau->delete();
+        return redirect()->route('bordereau.index')->with('success','Bordereau supprimé avec succès.');
     }
 
     /**
