@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bordereau;
+use App\Models\Personnel;
 use Illuminate\Http\Request;
 
 class BordereauController extends Controller
@@ -15,7 +16,8 @@ class BordereauController extends Controller
     public function index()
     {
         $bordereaus = Bordereau::all();
-        return view('pages.bordereau', compact('bordereaus'));
+        $personnels = Personnel::all();
+        return view('pages.bordereau.index', compact('bordereaus','personnels'));
     }
 
     /**
@@ -25,7 +27,8 @@ class BordereauController extends Controller
      */
     public function create()
     {
-        return view('pages.saisieBordereau');
+        $personnels = Personnel::all();
+        return view('pages.bordereau.create', compact('personnels'));
     }
 
     /**
@@ -37,11 +40,12 @@ class BordereauController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        $bordereau = Bordereau::create($input);
 
-        $idB = Bordereau::create($input)->idB;
-        $idP = $request->idP;
+        // dd($bordereau);
+        $personnels = Personnel::all();
 
-        return redirect()->route('bordereau.printBordereau', ['idB'=>$idB,'idP'=>$idP]);
+        return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
 
     /**
@@ -63,7 +67,7 @@ class BordereauController extends Controller
      */
     public function edit(Bordereau $Bordereau)
     {
-        //
+        retutn ('pages.bordereau.edit');
     }
 
     /**
@@ -84,26 +88,20 @@ class BordereauController extends Controller
      * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Bordereau $Bordereau)
     {
-        $Bordereau = Bordereau::where('idB',$_GET['id']);
+        $Bordereau = Bordereau::where('idB',$_P['id']);
         $Bordereau->delete();
-        return redirect()->route('bordereau.index')->with('success','Bordereau supprimé avec succès.');
+        return redirect()->route('pages.bordereau.index')->with('success','Bordereau supprimé avec succès.');
     }
 
     /**
      * Méthodes utilisateurs
      */
 
-
-    public function printBordereau()
+    public function print()
     {
-        return view('prints.printBordereau');
-    }
-
-    public static function getBordereau($id)
-    {
-        return Bordereau::where('idB',$id)->first();
+        return view('pages.bordereau.print');
     }
 
 }

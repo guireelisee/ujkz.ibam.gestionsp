@@ -1,10 +1,3 @@
-<?php
-use App\Http\Controllers\BordereauController;
-use App\Http\Controllers\PersonnelController;
-$idB = $_GET['idB'];
-$idP = $_GET['idP'];
-?>
-
 @extends('layouts.maquette')
 @section('objet')
 BORDEREAU <br>
@@ -16,9 +9,7 @@ A <br>
 @endsection
 
 @section('destinataire')
-@if ( $bordereau = BordereauController::getBordereau($idB))
     {{$bordereau->destinataireB}}
-@endif
 @endsection
 
 @section('corps')
@@ -34,13 +25,11 @@ A <br>
                 </tr>
             </thead>
             <tbody>
-                @if ( $bordereau = BordereauController::getBordereau($idB))
                 <tr>
                     <td>{{$bordereau->naturePieceB}}</td>
                     <td>{{$bordereau->nombrePieceB}}</td>
                     <th>{{$bordereau->observationB}}</th>
                 </tr>
-                @endif
             </tbody>
         </table>
     </div>
@@ -53,17 +42,18 @@ A <br>
         <div class="col">
             <span>
                 <div style="margin: 10% 0% 0% 70%">
-                    @if ( $bordereau = PersonnelController::getPersonnelById($idP))
-                    <span>
-                        @if ($bordereau->prenomP == "Ousmane")
+                    @foreach ($personnels as $personnel)
+                    @if ($personnel->idP === $bordereau->idP)
+                        <span>
+                        @if ($personnel->prenomP == "Ousmane")
                             Pour le Directeur de l’IBAM, et P/D le Secrétaire Principal
                         @else
-                            @if ( $personnel = PersonnelController::getPersonnelById($idP))
-                                Par {{$personnel->prenomP." ".$personnel->nomP}}
-                            @endif
+                            Par {{$personnel->prenomP." ".$personnel->nomP}}
                         @endif
                     </span>
                     @endif
+                    @endforeach
+
                 </div>
             </span>
         </div>
@@ -72,11 +62,13 @@ A <br>
         <div class="col">
             <span>
                 <div style="margin: 5% 0% 0% 70%">
-                    @if ( $personnel = PersonnelController::getPersonnelById($idP))
-                    <u>
-                        {{$personnel->prenomP." ".$personnel->nomP}}
-                    </u>
-                    @endif
+                    @foreach ($personnels as $personnel)
+                        @if ($personnel->idP === $bordereau->idP)
+                        <u>
+                            {{$personnel->prenomP." ".$personnel->nomP}}
+                        </u>
+                        @endif
+                    @endforeach
                 </div>
             </span>
         </div>

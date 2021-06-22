@@ -165,7 +165,7 @@
                 </div>
                 <!-- page statustic card end -->
 
-                <!-- prject ,team member start -->
+                {{-- <!-- prject ,team member start -->
                 <div class="col-xl-12 col-md-12">
                     <div class="card table-card">
                         <div class="card-header">
@@ -287,6 +287,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 @endsection
