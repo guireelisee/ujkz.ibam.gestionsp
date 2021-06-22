@@ -7,10 +7,10 @@
                         <label>Navigation</label>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
+                        <a href="{{ route('dashboard.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Tableau de bord</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Bordereau</span></a>
+                        <a href="{{ route('bordereau.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Bordereau</span></a>
                     </li>
 
                     <li class="nav-item">
@@ -79,4 +79,3 @@
         </div>
     </nav>
     <!-- [ navigation menu ] end -->
-    
