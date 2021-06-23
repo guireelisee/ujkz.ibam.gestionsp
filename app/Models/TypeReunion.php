@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TypeReunion extends Model
 {
     use HasFactory;
-    protected $fillable = ['idTR'];
+    protected $guarded = ['idTR'];
 
     protected $primaryKey = 'idTR';
 }
