@@ -68,8 +68,8 @@
                             <li><a href="{{ route('ampliation.index') }}">Ampliations</a></li>
                             <li><a href="{{ route('filiere.index') }}">Filières</a></li>
                             <li><a href="{{ route('salle.index') }}">Salles</a></li>
-                            <li><a href="">Fonctions</a></li>
-                            <li><a href="">Titres</a></li>
+                            <li><a href="{{ route('fonctions.index') }}">Fonctions</a></li>
+                            <li><a href="{{ route('titres.index') }}">Titres</a></li>
                             <li><a href="{{ route('types.index') }}">Types</a></li>
                         </ul>
                     </li>
