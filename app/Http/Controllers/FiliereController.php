@@ -15,7 +15,7 @@ class FiliereController extends Controller
     public function index()
     {
         $filieres = Filiere::all();
-        return view('pages.filieres', compact('filieres'));
+        return view('pages.filiere.index', compact('filieres'));
     }
 
     /**
@@ -25,7 +25,7 @@ class FiliereController extends Controller
     */
     public function create()
     {
-        //
+        return view('pages.filiere.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class FiliereController extends Controller
     public function store(Request $request)
     {
         Filiere::create($request->all());
-        return redirect()->route('filieres.index')->with('success','Filière ajoutée avec succès.');
+        return redirect()->route('filiere.index')->with('success','Filière ajoutée avec succès.');
     }
 
     /**
@@ -59,7 +59,7 @@ class FiliereController extends Controller
     */
     public function edit(Filiere $filiere)
     {
-        //
+        return view('pages.filiere.edit', compact('filiere'));
     }
 
     /**
@@ -71,7 +71,8 @@ class FiliereController extends Controller
     */
     public function update(Request $request, Filiere $filiere)
     {
-        //
+        $filiere->update($request->all());
+        return redirect()->route('filiere.index')->with('success','Filière modifiée avec succès.');
     }
 
     /**
@@ -83,6 +84,6 @@ class FiliereController extends Controller
     public function destroy(Filiere $filiere)
     {
         $filiere->delete();
-        return redirect()->route('filieres.index')->with('success','Filière supprimée avec succès.');
+        return redirect()->route('filiere.index')->with('success','Filière supprimée avec succès.');
     }
 }

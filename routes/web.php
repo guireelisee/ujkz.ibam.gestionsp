@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', 'DashboardController@index');
 Route::resource('dashboard', DashboardController::class);
 Route::resource('bordereau', BordereauController::class);
 Route::post('bordereau/print', 'BordereauController@print')->name('bordereau.print');
+
+Route::resource('ampliation', AmpliationController::class);
+Route::resource('filiere', FiliereController::class);
+Route::resource('salle', SalleController::class);

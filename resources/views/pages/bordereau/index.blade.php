@@ -56,7 +56,7 @@
                         <table class="table table-hover mb-0" id="">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">N°</th>
                                     <th scope="col">Nature</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Observation</th>

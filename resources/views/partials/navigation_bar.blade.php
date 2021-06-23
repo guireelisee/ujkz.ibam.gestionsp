@@ -65,10 +65,9 @@
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Configurations</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="">Ampliations</a></li>
-                            <li><a href="">Civilités</a></li>
-                            <li><a href="">Filières</a></li>
-                            <li><a href="">Salles</a></li>
+                            <li><a href="{{ route('ampliation.index') }}">Ampliations</a></li>
+                            <li><a href="{{ route('filiere.index') }}">Filières</a></li>
+                            <li><a href="{{ route('salle.index') }}">Salles</a></li>
                             <li><a href="">Fonctions</a></li>
                             <li><a href="">Titres</a></li>
                             <li><a href="">Types</a></li>

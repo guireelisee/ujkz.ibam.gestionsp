@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Ampliation extends Model
 {
     use HasFactory;
-    protected $fillable = [
+    protected $guarded = [
         'idAmp',
-        'intituleAmp'
     ];
 
     protected $primaryKey = 'idAmp';
