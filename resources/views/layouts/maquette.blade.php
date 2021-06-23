@@ -1,6 +1,6 @@
 
 @php
-// header("Refresh:.0001; URL=../bordereau");
+header("Refresh:.0001; URL=../bordereau");
 @endphp
 
 <!DOCTYPE html>
@@ -9,12 +9,12 @@
 <head>
     <meta charset="utf-8">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 
 
-<body style="background-color: white; font-size: 110%">
+<body style="background-color: white; font-size: 100%">
 
     <div class="wrapper" style="font-weight: bold">
         <!-- Content Wrapper. Contains page content -->
@@ -124,7 +124,7 @@
 
 @yield('signataire')
 
-{{-- <script type="text/javascript">window.print();</script> --}}
+<script type="text/javascript">window.print();</script>
 
 </body>
 

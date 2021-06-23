@@ -63,9 +63,10 @@ class BordereauController extends Controller
      * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bordereau $Bordereau)
+    public function edit(Bordereau $bordereau)
     {
-        retutn ('pages.bordereau.edit');
+        $personnels = Personnel::all();
+        return view('pages.bordereau.edit', compact('bordereau', 'personnels'));
     }
 
     /**
@@ -77,7 +78,11 @@ class BordereauController extends Controller
      */
     public function update(Request $request, Bordereau $Bordereau)
     {
-        //
+        $Bordereau->update($request->all());
+
+        $bordereau = Bordereau::where('idB', $Bordereau->idB)->first();
+        $personnels = Personnel::all();
+        return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
 
     /**
@@ -86,11 +91,11 @@ class BordereauController extends Controller
      * @param  \App\Models\Bordereau  $Bordereau
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bordereau $Bordereau)
+    public function destroy(Bordereau $bordereau)
     {
-        $Bordereau = Bordereau::where('idB',$_POST['id']);
-        $Bordereau->delete();
-        return redirect()->route('pages.bordereau.index')->with('success','Bordereau supprimé avec succès.');
+        $bordereau->delete();
+
+        return redirect()->route('bordereau.index')->with('delete','Bordereau supprimé avec succès.');
     }
 
     /**

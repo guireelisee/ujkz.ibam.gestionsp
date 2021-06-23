@@ -8,7 +8,7 @@
         <i class="feather icon-home"></i>
     </a>
 </li>
-<li class="breadcrumb-item"><a href="{{ route('bordereau.index') }}">Impression</a></li>
+<li class="breadcrumb-item"><a href="{{ route('bordereau.index') }}">Edition du bordereau n°{{$bordereau->idB}} </a></li>
 @endsection
 
 @section('main')
@@ -19,15 +19,16 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="card-body">
-                <h5>Informations à renseigner</h5>
+                <h5>Informations à modifier</h5>
                 <hr>
-                <form class="needs-validation" action="{{ route('bordereau.store') }}" method="post" novalidate>
+                <form class="needs-validation" action="{{ route('bordereau.update', $bordereau->idB) }}" method="post" novalidate>
                     @csrf
+                    @method('PATCH')
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Nature des pièces</label>
-                                <input name="naturePieceB" type="text" class="form-control" placeholder="Entrez une nature" required>
+                                <input name="naturePieceB" type="text" class="form-control" placeholder="Entrez une nature" required value="{{$bordereau->naturePieceB}}">
                                 <div class="invalid-feedback">
                                     Renseignez une nature.
                                 </div>
@@ -36,7 +37,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Nombre de pièces</label>
-                                <input name="nombrePieceB" type="number" class="form-control" placeholder="Entrez un nombre" min="1" value="1">
+                                <input name="nombrePieceB" type="number" class="form-control" placeholder="Entrez un nombre" min="1" value="{{$bordereau->nombrePieceB}}">
                             </div>
                             <div class="invalid-feedback">
                                 Renseignez un nombre.
@@ -45,7 +46,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Observation</label>
-                                <input name="observationB" type="text" class="form-control" placeholder="Entrez une observation" required>
+                                <input name="observationB" type="text" class="form-control" placeholder="Entrez une observation" required value="{{$bordereau->observationB}}">
                                 <div class="invalid-feedback">
                                     Renseignez une observation.
                                 </div>
@@ -54,7 +55,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Destinataire</label>
-                                <input name="destinataireB" type="text" class="form-control" placeholder="Entrez un destinataire" required>
+                                <input name="destinataireB" type="text" class="form-control" placeholder="Entrez un destinataire" required value="{{$bordereau->destinataireB}}">
                                 <div class="invalid-feedback">
                                     Renseignez un destinataire.
                                 </div>
@@ -66,7 +67,11 @@
                                 <select class="form-control" name="idP" id="" required>
                                     <option disabled>Sélectionnez un signataire</option>
                                     @foreach ($personnels as $personnel)
+                                        @if ($personnel->idP === $bordereau->idP)
+                                            <option value="{{$personnel->idP}}" selected>{{$personnel->nomP .' '. $personnel->prenomP}}</option>
+                                        @else
                                         <option value="{{$personnel->idP}}">{{$personnel->nomP .' '. $personnel->prenomP}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
