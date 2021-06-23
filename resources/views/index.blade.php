@@ -40,8 +40,19 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <h4 class="text-c-green">2</h4>
-                                        <h6 class="text-muted m-b-0">Page Views</h6>
+                                        <h4 class="text-c-green">
+                                            <a href="{{ route('bordereau.index') }}" style="color: #9ccc65">
+                                                {{$compteur_bordereau}}
+                                             </a>
+                                        </h4>
+                                        <h6 class="text-muted m-b-0">
+                                            @if ($compteur_bordereau >0)
+                                                Borderaux imprimés
+                                             @else
+                                                Borderau imprimé
+                                            @endif
+
+                                        </h6>
                                     </div>
                                     <div class="col-4 text-right">
                                         <i class="feather icon-file-text f-28"></i>

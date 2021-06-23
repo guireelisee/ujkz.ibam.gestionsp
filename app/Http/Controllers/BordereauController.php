@@ -49,10 +49,10 @@ class BordereauController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
-    public function show(Bordereau $Bordereau)
+    public function show(Bordereau $bordereau)
     {
         //
     }
@@ -60,7 +60,7 @@ class BordereauController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
     public function edit(Bordereau $bordereau)
@@ -73,14 +73,14 @@ class BordereauController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bordereau $Bordereau)
+    public function update(Request $request, Bordereau $bordereau)
     {
-        $Bordereau->update($request->all());
+        $bordereau->update($request->all());
 
-        $bordereau = Bordereau::where('idB', $Bordereau->idB)->first();
+        $bordereau = Bordereau::where('idB', $bordereau->idB)->first();
         $personnels = Personnel::all();
         return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
@@ -88,7 +88,7 @@ class BordereauController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
     public function destroy(Bordereau $bordereau)
@@ -108,5 +108,5 @@ class BordereauController extends Controller
         $personnels = Personnel::all();
         return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
-
+    
 }
