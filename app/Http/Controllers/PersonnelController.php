@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Personnel;
+use App\Models\TitrePersonnel;
+use App\Models\FonctionPersonnel;
 use Illuminate\Http\Request;
 
 class PersonnelController extends Controller
@@ -14,7 +16,8 @@ class PersonnelController extends Controller
      */
     public function index()
     {
-        //
+        $personnels = Personnel::all();
+        return view('pages.personnels', compact('personnels'));
     }
 
     /**
@@ -76,11 +79,14 @@ class PersonnelController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Personnel  $personnel
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\H    ttp\Response
      */
-    public function destroy(Personnel $personnel)
+    public function destroy()
     {
-        //
+        $id = $_GET['id'];
+        $personnel = Personnel::where('idP',$id)->first();
+        $personnel->delete();
+        return redirect()->route('personnels.index')->with('success','Personnel supprimé avec succès.');
     }
 
     /**
@@ -95,5 +101,15 @@ class PersonnelController extends Controller
     public static function getPersonnelByType($id)
     {
         return Personnel::where('idTP',$id)->first();
+    }
+
+    public static function getTitreById($id)
+    {
+
+        return TitrePersonnel::where('idTitreP',$id)->first();
+    }
+    public static function getFonctionById($id)
+    {
+        return FonctionPersonnel::where('idFonctionP',$id)->first();
     }
 }

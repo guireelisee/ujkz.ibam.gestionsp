@@ -15,7 +15,7 @@ class AmpliationController extends Controller
     public function index()
     {
         $ampliations = Ampliation::all();
-        return view('pages.ampliations', compact('ampliations'));
+        return view('pages.ampliation.index', compact('ampliations'));
     }
 
     /**
@@ -25,7 +25,7 @@ class AmpliationController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.ampliation.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class AmpliationController extends Controller
     public function store(Request $request)
     {
         Ampliation::create($request->all());
-        return redirect()->route('ampliations.index')->with('success','Ampliation ajoutée avec succès.');
+        return redirect()->route('ampliation.index')->with('success','Ampliation ajoutée avec succès.');
     }
 
     /**
@@ -59,7 +59,7 @@ class AmpliationController extends Controller
      */
     public function edit(Ampliation $ampliation)
     {
-        //
+        return view('pages.ampliation.edit', compact('ampliation'));
     }
 
     /**
@@ -71,7 +71,8 @@ class AmpliationController extends Controller
      */
     public function update(Request $request, Ampliation $ampliation)
     {
-        //
+        $ampliation->update($request->all());
+        return redirect()->route('ampliation.index')->with('success','Ampliation modifiée avec succès.');
     }
 
     /**
@@ -83,6 +84,6 @@ class AmpliationController extends Controller
     public function destroy(Ampliation $ampliation)
     {
         $ampliation->delete();
-        return redirect()->route('ampliations.index')->with('success','Ampliation supprimée avec succès.');
+        return redirect()->route('ampliation.index')->with('delete','Ampliation supprimée avec succès.');
     }
 }

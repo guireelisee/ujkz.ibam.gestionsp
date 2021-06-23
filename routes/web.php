@@ -14,59 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
- * Routes pour Dashboard
- */
+Route::get('/', 'DashboardController@index');
+Route::resource('dashboard', DashboardController::class);
+Route::resource('bordereau', BordereauController::class);
+Route::post('bordereau/print', 'BordereauController@print')->name('bordereau.print');
 
-Route::get('/', 'DashboardController@index')->name('index');
+Route::resource('ampliation', AmpliationController::class);
 
-/**
- * Routes pour Bordereau
- */
-Route::get('/bordereau', 'BordereauController@index')->name('bordereau.index');
-Route::get('/bordereau/print', 'BordereauController@printBordereau')->name('bordereau.printBordereau');
-Route::post('/bordereau/saisie', 'BordereauController@store')->name('bordereau.store');
+Route::resource('filiere', FiliereController::class);
 
+Route::resource('salle', SalleController::class);
 
-/**
- * Routes pour civilite
- */
-Route::resource('civilite', CiviliteController::class);
-
-/**
- * Routes pour titres
- */
-Route::resource('titres', TitresController::class);
-Route::get('titre.destroyV', 'TitresController@destroyV')->name('titre.destroyV');
-Route::get('titre.destroyP', 'TitresController@destroyP')->name('titre.destroyP');
-
-/**
- * Routes pour fonctions
- */
-Route::resource('fonctions', FonctionsController::class);
-Route::get('fonction.destroyV', 'FonctionsController@destroyV')->name('fonction.destroyV');
-Route::get('fonction.destroyP', 'FonctionsController@destroyP')->name('fonction.destroyP');
-
-/**
- * Routes pour types (missions, personnels, réunions)
- */
 Route::resource('types', TypesController::class);
-Route::get('types.destroyP', 'TypesController@destroyP')->name('types.destroyP');
-Route::get('types.destroyR', 'TypesController@destroyR')->name('types.destroyR');
-Route::get('types.destroyM', 'TypesController@destroyM')->name('types.destroyM');
-
-/**
- * Routes pour salles
- */
-Route::resource('salles', SalleController::class);
-
-/**
- * Routes pour ampliations
- */
-Route::resource('ampliations', AmpliationController::class);
-
-/**
- * Routes pour filieres
- */
-Route::resource('filieres', FiliereController::class);
-
+Route::resource('type_personnel', TypePersonnelController::class);
+Route::resource('type_reunion', TypeReunionController::class);
+Route::resource('type_mission', TypeMissionController::class);

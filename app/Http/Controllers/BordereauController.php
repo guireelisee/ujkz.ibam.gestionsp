@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bordereau;
+use App\Models\Personnel;
 use Illuminate\Http\Request;
 
 class BordereauController extends Controller
@@ -15,7 +16,8 @@ class BordereauController extends Controller
     public function index()
     {
         $bordereaus = Bordereau::all();
-        return view('pages.bordereau', compact('bordereaus'));
+        $personnels = Personnel::all();
+        return view('pages.bordereau.index', compact('bordereaus','personnels'));
     }
 
     /**
@@ -25,7 +27,8 @@ class BordereauController extends Controller
      */
     public function create()
     {
-        return view('pages.saisieBordereau');
+        $personnels = Personnel::all();
+        return view('pages.bordereau.create', compact('personnels'));
     }
 
     /**
@@ -37,18 +40,19 @@ class BordereauController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $idB = Bordereau::create($input)->id;
-        $idP = Bordereau::where('idB',$idB)->first()->idP;
-        return redirect()->route('bordereau.printBordereau', ['idB'=>$idB,'idP'=>$idP]);
+        $bordereau = Bordereau::create($input);
+        $personnels = Personnel::all();
+
+        return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
-    public function show(Bordereau $Bordereau)
+    public function show(Bordereau $bordereau)
     {
         //
     }
@@ -56,50 +60,53 @@ class BordereauController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bordereau $Bordereau)
+    public function edit(Bordereau $bordereau)
     {
-        //
+        $personnels = Personnel::all();
+        return view('pages.bordereau.edit', compact('bordereau', 'personnels'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bordereau $Bordereau)
+    public function update(Request $request, Bordereau $bordereau)
     {
-        //
+        $bordereau->update($request->all());
+
+        $bordereau = Bordereau::where('idB', $bordereau->idB)->first();
+        $personnels = Personnel::all();
+        return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Bordereau  $Bordereau
+     * @param  \App\Models\Bordereau  $bordereau
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bordereau $Bordereau)
+    public function destroy(Bordereau $bordereau)
     {
-        //
+        $bordereau->delete();
+
+        return redirect()->route('bordereau.index')->with('delete','Bordereau supprimé avec succès.');
     }
 
     /**
      * Méthodes utilisateurs
      */
 
-
-    public function printBordereau()
+    public function print()
     {
-        return view('prints.printBordereau');
+        $bordereau = Bordereau::where('idB',$_GET['idB'])->first();
+        $personnels = Personnel::all();
+        return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
-
-    public static function getBordereau($id)
-    {
-        return Bordereau::where('idB',$id)->first();
-    }
-
+    
 }

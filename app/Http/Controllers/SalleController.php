@@ -15,7 +15,7 @@ class SalleController extends Controller
     public function index()
     {
         $salles = Salle::all();
-        return view('pages.salles', compact('salles'));
+        return view('pages.salle.index', compact('salles'));
     }
 
     /**
@@ -25,7 +25,7 @@ class SalleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.salle.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class SalleController extends Controller
     public function store(Request $request)
     {
         Salle::create($request->all());
-        return redirect()->route('salles.index')->with('success','Salle ajoutée avec succès.');
+        return redirect()->route('salle.index')->with('success','Salle ajoutée avec succès.');
     }
 
     /**
@@ -59,7 +59,7 @@ class SalleController extends Controller
      */
     public function edit(Salle $salle)
     {
-        //
+        return view('pages.salle.edit', compact('salle'));
     }
 
     /**
@@ -71,7 +71,8 @@ class SalleController extends Controller
      */
     public function update(Request $request, Salle $salle)
     {
-        //
+        $salle->update($request->all());
+        return redirect()->route('salle.index')->with('success','Salle modifiée avec succès.');
     }
 
     /**
@@ -83,6 +84,6 @@ class SalleController extends Controller
     public function destroy(Salle $salle)
     {
         $salle->delete();
-        return redirect()->route('salles.index')->with('success','Salle supprimée avec succès.');
+        return redirect()->route('salle.index')->with('delete','Salle supprimée avec succès.');
     }
 }

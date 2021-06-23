@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TypeMission extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'idTM',
-        'intituleTM'
-    ];
+    protected $guarded = ['idTM'];
 
         protected $primaryKey = 'idTM';
 

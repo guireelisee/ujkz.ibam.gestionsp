@@ -19,7 +19,7 @@ class TypesController extends Controller
         $typesMission = TypeMission::all();
         $typesPersonnel = TypePersonnel::all();
         $typesReunion = TypeReunion::all();
-        return view('pages.types', compact(['typesMission','typesPersonnel','typesReunion']));
+        return view('pages.types.index', compact(['typesMission','typesPersonnel','typesReunion']));
     }
 
     /**
@@ -28,6 +28,11 @@ class TypesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+    {
+        return view('pages.types.create');
+    }
+
+    public function show()
     {
         //
     }
@@ -45,11 +50,13 @@ class TypesController extends Controller
             $typesPersonnel->intituleTP = request('type');
             $typesPersonnel->save();
             return redirect()->route('types.index')->with('success','Type du personnel ajouté avec succès.');
+
         } else if ($_POST['corps'] === "M") {
             $typesMission = new TypeMission;
             $typesMission->intituleTM = request('type');
             $typesMission->save();
             return redirect()->route('types.index')->with('success','Type de mission ajouté avec succès.');
+            
         } else if ($_POST['corps'] === "R") {
             $typesReunion= new TypeReunion;
             $typesReunion->intituleTR = request('type');
@@ -58,24 +65,7 @@ class TypesController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TypeMission  $typeMission
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TypeMission $typeMission)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TypeMission  $typeMission
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TypeMission $typeMission)
+    public function edit()
     {
         //
     }
@@ -87,7 +77,7 @@ class TypesController extends Controller
      * @param  \App\Models\TypeMission  $typeMission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeMission $typeMission)
+    public function update()
     {
         //
     }

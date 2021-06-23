@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Civilite;
 
 class CiviliteSeeder extends Seeder
 {
@@ -13,6 +14,20 @@ class CiviliteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $civilites = [
+            [
+                'intituleCivilite'=> 'Monsieur'
+            ],
+            [
+                'intituleCivilite'=> 'Madame'
+            ],
+            [
+                'intituleCivilite'=> 'Mademoiselle'
+            ],
+        ];
+
+        foreach ($civilites as $civilite) {
+            Civilite::create($civilite);
+        }
     }
 }

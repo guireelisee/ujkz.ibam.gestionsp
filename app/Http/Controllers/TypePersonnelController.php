@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\TypePersonnel;
-use App\Models\Personnel;
 use Illuminate\Http\Request;
 
 class TypePersonnelController extends Controller
@@ -16,11 +15,6 @@ class TypePersonnelController extends Controller
     public function index()
     {
         //
-    }
-
-    public static function getTypePersonnel($id)
-    {
-        return Personnel::where('idTP',$id)->first();
     }
 
     /**
@@ -47,10 +41,10 @@ class TypePersonnelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TypePersonnel  $typePersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(TypePersonnel $typePersonnel)
+    public function show($id)
     {
         //
     }
@@ -58,34 +52,36 @@ class TypePersonnelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TypePersonnel  $typePersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(TypePersonnel $typePersonnel)
     {
-        //
+        return view('pages.types.edit_type_personnel', compact('typePersonnel'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypePersonnel  $typePersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TypePersonnel $typePersonnel)
     {
-        //
+        $typePersonnel->update($request->all());
+        return redirect()->route('types.index')->with('success','Type du personne modifié avec succès.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TypePersonnel  $typePersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(TypePersonnel $typePersonnel)
     {
-        //
+        $typePersonnel->delete();
+        return redirect()->route('types.index')->with('success','Type du personnel supprimé avec succès.');
     }
 }

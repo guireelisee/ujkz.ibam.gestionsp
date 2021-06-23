@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Salle extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'idSalle',
-        'intituleSalle'
-    ];
+    protected $guarded = ['idSalle'];
 
     protected $primaryKey = 'idSalle';
 }

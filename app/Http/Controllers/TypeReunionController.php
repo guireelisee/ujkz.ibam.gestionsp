@@ -41,10 +41,10 @@ class TypeReunionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TypeReunion  $typeReunion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeReunion $typeReunion)
+    public function show($id)
     {
         //
     }
@@ -52,34 +52,36 @@ class TypeReunionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TypeReunion  $typeReunion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(TypeReunion $typeReunion)
     {
-        //
+        return view('pages.types.edit_type_reunion', compact('typeReunion'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypeReunion  $typeReunion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TypeReunion $typeReunion)
     {
-        //
+        $typeReunion->update($request->all());
+        return redirect()->route('types.index')->with('success','Type de réunion modifié avec succès.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TypeReunion  $typeReunion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(TypeReunion $typeReunion)
     {
-        //
+        $typeReunion->delete();
+        return redirect()->route('types.index')->with('success','Type de réunion supprimé avec succès.');
     }
 }

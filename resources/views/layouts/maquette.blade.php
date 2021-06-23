@@ -9,12 +9,12 @@ header("Refresh:.0001; URL=../bordereau");
 <head>
     <meta charset="utf-8">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 
 
-<body style="background-color: white; font-size: 110%">
+<body style="background-color: white; font-size: 100%">
 
     <div class="wrapper" style="font-weight: bold">
         <!-- Content Wrapper. Contains page content -->
