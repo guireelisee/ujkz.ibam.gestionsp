@@ -32,7 +32,10 @@ class TypesController extends Controller
         return view('pages.types.create');
     }
 
-    public function show(){}
+    public function show()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,11 +50,13 @@ class TypesController extends Controller
             $typesPersonnel->intituleTP = request('type');
             $typesPersonnel->save();
             return redirect()->route('types.index')->with('success','Type du personnel ajouté avec succès.');
+
         } else if ($_POST['corps'] === "M") {
             $typesMission = new TypeMission;
             $typesMission->intituleTM = request('type');
             $typesMission->save();
             return redirect()->route('types.index')->with('success','Type de mission ajouté avec succès.');
+            
         } else if ($_POST['corps'] === "R") {
             $typesReunion= new TypeReunion;
             $typesReunion->intituleTR = request('type');
@@ -60,21 +65,9 @@ class TypesController extends Controller
         }
     }
 
-    public function edit_mission(TypeMission $typeMission)
+    public function edit()
     {
-        return view('pages.types.edit_mission', compact('typeMission'));
-    }
-
-    public function edit_personnel(TypePersonnel $typePersonnel)
-    {
-        // $typePersonnel = TypePersonnel::where('idTP',$_GET['idTP']);
-        dd($typePersonnel);
-        return view('pages.types.edit_personnel', compact('typePersonnel'));
-    }
-
-    public function edit_reunion(TypeReunion $typeReunion)
-    {
-        return view('pages.types.edit_reunion', compact('typeReunion'));
+        //
     }
 
     /**
@@ -84,7 +77,7 @@ class TypesController extends Controller
      * @param  \App\Models\TypeMission  $typeMission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeMission $typeMission)
+    public function update()
     {
         //
     }

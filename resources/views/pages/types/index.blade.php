@@ -75,12 +75,12 @@
                                 <th scope="col">{{$typePersonnel->intituleTP}}</th>
                                 <th scope="col">Personnel</th>
                                 <th scope="col">
-                                    <form action="{{ route('types.destroy', $typePersonnel->idTP)}}" method="post">
-                                        <a class="btn btn-alternate" href="{{ route('types.edit_personnel',['idTP'=>$typePersonnel->idTP]) }}"><i class="fas fa-edit"></i></a>
-                                        @csrf
-                                        @method('POST')
+                                    {{-- <form action="{{ route('type_personnel.destroy', $typePersonnel->idTP)}}" method="post"> --}}
+                                        <a class="btn btn-alternate" href="{{ route('type_personnel.edit', $typePersonnel->idTP) }}"><i class="fas fa-edit"></i></a>
+                                        {{-- @csrf
+                                        @method('DELETE')
                                         <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
                                 </th>
                             </tr>
                             @endforeach
@@ -91,12 +91,12 @@
                                 <th scope="col">{{$typeReunion->intituleTR}}</th>
                                 <th scope="col">Réunion</th>
                                 <th scope="col">
-                                   <form action="{{ route('types.destroy', $typeReunion->idTR)}}" method="POST">
-                                        <a class="btn btn-alternate" href="{{ route('types.edit_reunion',$typeReunion->idTR) }}"><i class="fas fa-edit"></i></a>
-                                        @csrf
+                                   {{-- <form action="{{ route('type_reunion.destroy', $typeReunion->idTR)}}" method="POST"> --}}
+                                        <a class="btn btn-alternate" href="{{ route('type_reunion.edit',$typeReunion->idTR) }}"><i class="fas fa-edit"></i></a>
+                                        {{-- @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
                                 </th>
                             </tr>
                             @endforeach
@@ -107,12 +107,12 @@
                                 <th scope="col">{{$typeMission->intituleTM}}</th>
                                 <th scope="col">Mission</th>
                                 <th scope="col">
-                                   <form action="{{ route('types.destroy', $typeMission->idTM)}}" method="POST">
-                                        <a class="btn btn-alternate" href="{{ route('types.edit_mission',$typeMission->idTM) }}"><i class="fas fa-edit"></i></a>
-                                        @csrf
+                                   {{-- <form action="{{ route('type_mission.destroy', $typeMission->idTM)}}" method="POST"> --}}
+                                        <a class="btn btn-alternate" href="{{ route('type_mission.edit',$typeMission->idTM) }}"><i class="fas fa-edit"></i></a>
+                                        {{-- @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
                                 </th>
                             </tr>
                             @endforeach
