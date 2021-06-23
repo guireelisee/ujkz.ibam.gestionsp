@@ -19,7 +19,7 @@ class TypesController extends Controller
         $typesMission = TypeMission::all();
         $typesPersonnel = TypePersonnel::all();
         $typesReunion = TypeReunion::all();
-        return view('pages.types', compact(['typesMission','typesPersonnel','typesReunion']));
+        return view('pages.types.index', compact(['typesMission','typesPersonnel','typesReunion']));
     }
 
     /**
@@ -29,8 +29,10 @@ class TypesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.types.create');
     }
+
+    public function show(){}
 
     /**
      * Store a newly created resource in storage.
@@ -58,26 +60,21 @@ class TypesController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TypeMission  $typeMission
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TypeMission $typeMission)
+    public function edit_mission(TypeMission $typeMission)
     {
-        //
+        return view('pages.types.edit_mission', compact('typeMission'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TypeMission  $typeMission
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TypeMission $typeMission)
+    public function edit_personnel(TypePersonnel $typePersonnel)
     {
-        //
+        // $typePersonnel = TypePersonnel::where('idTP',$_GET['idTP']);
+        dd($typePersonnel);
+        return view('pages.types.edit_personnel', compact('typePersonnel'));
+    }
+
+    public function edit_reunion(TypeReunion $typeReunion)
+    {
+        return view('pages.types.edit_reunion', compact('typeReunion'));
     }
 
     /**

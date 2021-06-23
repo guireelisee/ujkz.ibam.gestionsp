@@ -70,7 +70,7 @@
                             <li><a href="{{ route('salle.index') }}">Salles</a></li>
                             <li><a href="">Fonctions</a></li>
                             <li><a href="">Titres</a></li>
-                            <li><a href="">Types</a></li>
+                            <li><a href="{{ route('types.index') }}">Types</a></li>
                         </ul>
                     </li>
                 </ul>
