@@ -56,7 +56,7 @@ class TypesController extends Controller
             $typesMission->intituleTM = request('type');
             $typesMission->save();
             return redirect()->route('types.index')->with('success','Type de mission ajouté avec succès.');
-            
+
         } else if ($_POST['corps'] === "R") {
             $typesReunion= new TypeReunion;
             $typesReunion->intituleTR = request('type');
@@ -82,45 +82,4 @@ class TypesController extends Controller
         //
     }
 
-        /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\TypePersonnel  $typePersonnel
-    * @return \Illuminate\Http\Response
-    */
-    public function destroyP()
-    {
-        $id = $_GET['id'];
-        $typePersonnel = TypePersonnel::where('idTP',$id)->first();
-        $typePersonnel->delete();
-        return redirect()->route('types.index')->with('success','Type supprimé avec succès.');
-    }
-
-    /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\TypeReunion  $typeReunion
-    * @return \Illuminate\Http\Response
-    */
-    public function destroyR()
-    {
-        $id = $_GET['id'];
-        $typeReunion = TypeReunion::where('idTR',$id)->first();
-        $typeReunion->delete();
-        return redirect()->route('types.index')->with('success','Type supprimé avec succès.');
-    }
-
-    /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\TypeMission  $typeMission
-    * @return \Illuminate\Http\Response
-    */
-    public function destroyM()
-    {
-        $id = $_GET['id'];
-        $typeMission = TypeMission::where('idTM',$id)->first();
-        $typeMission->delete();
-        return redirect()->route('types.index')->with('success','Type supprimé avec succès.');
-    }
 }

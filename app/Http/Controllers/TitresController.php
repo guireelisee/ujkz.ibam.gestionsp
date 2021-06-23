@@ -17,7 +17,7 @@ class TitresController extends Controller
     {
         $titresP = TitrePersonnel::all();
         $titresV = TitreVisiteur::all();
-        return view('pages.titres', compact(['titresP','titresV']));
+        return view('pages.titres.index', compact(['titresP','titresV']));
     }
 
     /**
@@ -27,7 +27,7 @@ class TitresController extends Controller
     */
     public function create()
     {
-        //
+        return view('pages.titres.create');
     }
 
     /**
@@ -43,11 +43,13 @@ class TitresController extends Controller
             $titreP->intituleTitreP = request('titre');
             $titreP->save();
             return redirect()->route('titres.index')->with('success','Titre du personnel ajouté avec succès.');
+
         } else if ($_POST['corps'] === "V") {
             $titreV = new TitreVisiteur;
             $titreV->intituleTitreV = request('titre');
             $titreV->save();
             return redirect()->route('titres.index')->with('success','Titre du visiteur ajouté avec succès.');
+            
         }
     }
 
@@ -85,31 +87,4 @@ class TitresController extends Controller
         //
     }
 
-    /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\TitrePersonnel  $titrePersonnel
-    * @return \Illuminate\Http\Response
-    */
-    public function destroyP()
-    {
-        $id = $_GET['id'];
-        $titrePersonnel = TitrePersonnel::where('idTitreP',$id)->first();
-        $titrePersonnel->delete();
-        return redirect()->route('titres.index')->with('success','Titre supprimé avec succès.');
-    }
-
-    /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\TitreVisiteur  $titreVisiteur
-    * @return \Illuminate\Http\Response
-    */
-    public function destroyV()
-    {
-        $id = $_GET['id'];
-        $titreVisiteur = TitreVisiteur::where('idTitreV',$id)->first();
-        $titreVisiteur->delete();
-        return redirect()->route('titres.index')->with('success','Titre supprimé avec succès.');
-    }
 }

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\FonctionPersonnel;
-use App\Models\FonctionVisiteur;
 use Illuminate\Http\Request;
 
-class FonctionsController extends Controller
+class FonctionPersonnelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class FonctionsController extends Controller
      */
     public function index()
     {
-        $fonctionsP = FonctionPersonnel::all();
-        $fonctionsV = FonctionVisiteur::all();
-        return view('pages.fonctions.index', compact(['fonctionsP','fonctionsV']));
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class FonctionsController extends Controller
      */
     public function create()
     {
-        return view('pages.fonctions.create');
+        //
     }
 
     /**
@@ -38,28 +35,16 @@ class FonctionsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($_POST['corps'] === "P") {
-            $fonctionP = new FonctionPersonnel;
-            $fonctionP->intituleFonctionP = request('fonction');
-            $fonctionP->save();
-            return redirect()->route('fonctions.index')->with('success','Fonction du personnel ajoutée avec succès.');
-
-        } else if ($_POST['corps'] === "V") {
-            $fonctionV = new FonctionVisiteur;
-            $fonctionV->intituleFonctionV = request('fonction');
-            $fonctionV->save();
-            return redirect()->route('fonctions.index')->with('success','Fonction du visiteur ajoutée avec succès.');
-
-        }
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FonctionPersonnel  $fonctionPersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(FonctionPersonnel $fonctionPersonnel)
+    public function show($id)
     {
         //
     }
@@ -67,24 +52,35 @@ class FonctionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FonctionPersonnel  $fonctionPersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(FonctionPersonnel $fonctionPersonnel)
     {
-        //
+        return view('pages.fonctions.edit_fonction_personnel', compact('fonctionPersonnel'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FonctionPersonnel  $fonctionPersonnel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, FonctionPersonnel $fonctionPersonnel)
     {
-        //
+        $fonctionPersonnel->update($request->all());
+        return redirect()->route('fonctions.index')->with('success','Fonction du personnel modifiée avec succès.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

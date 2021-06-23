@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TitrePersonnel extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'idTitreP',
-        'intituleTitreP'
-    ];
+    protected $guarded = ['idTitreP'];
 
     protected $primaryKey ='idTitreP';
 }

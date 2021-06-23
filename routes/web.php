@@ -29,3 +29,11 @@ Route::resource('types', TypesController::class);
 Route::resource('type_personnel', TypePersonnelController::class);
 Route::resource('type_reunion', TypeReunionController::class);
 Route::resource('type_mission', TypeMissionController::class);
+
+Route::resource('titres', TitresController::class);
+Route::resource('titre_personnel', TitrePersonnelController::class);
+Route::resource('titre_visiteur', TitreVisiteurController::class);
+
+Route::resource('fonctions', FonctionsController::class);
+Route::resource('fonction_personnel', FonctionPersonnelController::class);
+Route::resource('fonction_visiteur', FonctionVisiteurController::class);
