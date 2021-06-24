@@ -51,7 +51,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Personnels</span></a>
+                        <a href="{{ route('personnel.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Personnels</span></a>
                     </li>
 
                     <li class="nav-item">

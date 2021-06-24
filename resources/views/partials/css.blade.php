@@ -4,5 +4,10 @@
 
 <!-- vendor css -->
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+<style>
+    label{
+        font-weight: bold;
+    }
+</style>
 
 

@@ -37,3 +37,5 @@ Route::resource('titre_visiteur', TitreVisiteurController::class);
 Route::resource('fonctions', FonctionsController::class);
 Route::resource('fonction_personnel', FonctionPersonnelController::class);
 Route::resource('fonction_visiteur', FonctionVisiteurController::class);
+
+Route::resource('personnel', PersonnelController::class);

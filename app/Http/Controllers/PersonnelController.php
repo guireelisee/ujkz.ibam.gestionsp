@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Personnel;
 use App\Models\TitrePersonnel;
+use App\Models\TypePersonnel;
 use App\Models\FonctionPersonnel;
+use App\Models\Civilite;
 use Illuminate\Http\Request;
 
 class PersonnelController extends Controller
@@ -17,7 +19,11 @@ class PersonnelController extends Controller
     public function index()
     {
         $personnels = Personnel::all();
-        return view('pages.personnels', compact('personnels'));
+        $titres = TitrePersonnel::all();
+        $types = TypePersonnel::all();
+        $fonctions = FonctionPersonnel::all();
+        $civilites = Civilite::all();
+        return view('pages.personnel.index', compact('personnels','titres','fonctions','civilites','types'));
     }
 
     /**
@@ -49,7 +55,11 @@ class PersonnelController extends Controller
      */
     public function show(Personnel $personnel)
     {
-        //
+        $titres = TitrePersonnel::all();
+        $types = TypePersonnel::all();
+        $fonctions = FonctionPersonnel::all();
+        $civilites = Civilite::all();
+        return view('pages.personnel.show', compact('personnel','titres','fonctions','civilites','types'));
     }
 
     /**
@@ -60,7 +70,11 @@ class PersonnelController extends Controller
      */
     public function edit(Personnel $personnel)
     {
-        //
+        $titres = TitrePersonnel::all();
+        $types = TypePersonnel::all();
+        $fonctions = FonctionPersonnel::all();
+        $civilites = Civilite::all();
+        return view('pages.personnel.edit', compact('personnel','titres','fonctions','civilites','types'));
     }
 
     /**
@@ -72,7 +86,8 @@ class PersonnelController extends Controller
      */
     public function update(Request $request, Personnel $personnel)
     {
-        //
+        $personnel->update($request->all());
+        return redirect()->route('personnel.index')->with('success','Personnel modifié avec succès.');
     }
 
     /**
@@ -89,27 +104,4 @@ class PersonnelController extends Controller
         return redirect()->route('personnels.index')->with('success','Personnel supprimé avec succès.');
     }
 
-    /**
-     * Méthodes utilisateurs
-     */
-
-    public static function getPersonnelById($id)
-    {
-        return Personnel::where('idP',$id)->first();
-    }
-
-    public static function getPersonnelByType($id)
-    {
-        return Personnel::where('idTP',$id)->first();
-    }
-
-    public static function getTitreById($id)
-    {
-
-        return TitrePersonnel::where('idTitreP',$id)->first();
-    }
-    public static function getFonctionById($id)
-    {
-        return FonctionPersonnel::where('idFonctionP',$id)->first();
-    }
 }

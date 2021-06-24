@@ -70,7 +70,7 @@ class TypeMissionController extends Controller
     public function update(Request $request, TypeMission $typeMission)
     {
         $typeMission->update($request->all());
-        return redirect()->route('types.index')->with('success','Type du de mission modifié avec succès.');
+        return redirect()->route('types.index')->with('success','Type de mission modifié avec succès.');
     }
 
     /**

@@ -22,8 +22,18 @@
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-yellow">1</h4>
-                            <h6 class="text-muted m-b-0">Personnels</h6>
+                            <h4 class="text-c-yellow">
+                            <a href="{{ route('personnel.index') }}" style="color: #f9b956">
+                                    {{$compteur_personnel}}
+                                </h4>
+                                <h6 class="text-muted m-b-0">
+                                    @if ($compteur_personnel >0)
+                                    Personnels enregistrés
+                                    @else
+                                    Personnel enregistré
+                                    @endif
+                                </h6>
+                            </a>
                         </div>
                         <div class="col-4 text-right">
                             <i class="feather icon-users f-28"></i>

@@ -15,14 +15,8 @@ class DashboardController extends Controller
     */
     function index()
     {
-        $compteur_bordereau = DashboardController::compteur_bordereau();
-        return view('index', compact('compteur_bordereau'));
+        $compteur_personnel= Personnel::all()->count();
+        $compteur_bordereau = Bordereau::all()->count();
+        return view('index', compact('compteur_personnel','compteur_bordereau'));
     }
-
-
-    public function compteur_bordereau()
-    {
-        return Bordereau::all()->count();
-    }
-
 }
