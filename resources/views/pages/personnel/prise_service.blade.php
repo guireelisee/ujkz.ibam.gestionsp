@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titre','Personnel')
+@section('titre','Prise de service')
 
 @section('sous_titre')
 <li class="breadcrumb-item">
@@ -8,7 +8,7 @@
         <i class="feather icon-home"></i>
     </a>
 </li>
-<li class="breadcrumb-item"><a href="{{ route('personnel.index') }}">Edition du personnel n°{{$personnel->idP}} </a></li>
+<li class="breadcrumb-item"><a href="{{ route('personnel.index') }}">Enregistrement d'un personnel et impression</a></li>
 @endsection
 
 @section('main')
@@ -19,22 +19,15 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="card-body">
-                <h5>Informations à modifier</h5>
+                <h5>Informations à renseigner</h5>
                 <hr>
-                <form class="needs-validation" action="{{ route('personnel.update', $personnel->idP) }}" method="post" novalidate>
+                <form class="needs-validation" action="{{ route('personnel.store') }}" method="post" novalidate>
                     @csrf
-                    @method('PATCH')
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Matricule</label>
-                                <input name="matriculeP" type="text" class="form-control" placeholder="Entrez un matricule" required value="{{$personnel->matriculeP}}">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
                                 <label for="">Nom</label>
-                                <input name="nomP" type="text" class="form-control" placeholder="Entrez un nom" required value="{{$personnel->nomP}}">
+                                <input name="nomP" type="text" class="form-control" placeholder="Entrez un nom" required>
                                 <div class="invalid-feedback">
                                     Renseignez un nom.
                                 </div>
@@ -43,7 +36,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Prénom(s)</label>
-                                <input name="prenomP" type="text" class="form-control" placeholder="Entrez un prenom" required value="{{$personnel->prenomP}}">
+                                <input name="prenomP" type="text" class="form-control" placeholder="Entrez un prenom" required>
                                 <div class="invalid-feedback">
                                     Renseignez un prénom.
                                 </div>
@@ -51,8 +44,17 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
+                                <label for="">Matricule</label>
+                                <input name="matriculeP" type="text" class="form-control" placeholder="Entrez un matricule" required>
+                                <div class="invalid-feedback">
+                                    Renseignez un matricule.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
                                 <label for="">Email</label>
-                                <input name="emailP" type="email" class="form-control" placeholder="Entrez une adresse mail" required value="{{$personnel->emailP}}">
+                                <input name="emailP" type="email" class="form-control" placeholder="Entrez une adresse mail" required>
                                 <div class="invalid-feedback">
                                     Renseignez une adresse mail.
                                 </div>
@@ -61,7 +63,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Numéro de téléphone</label>
-                                <input name="telephoneP" type="number" class="form-control" placeholder="Entrez un numéro de téléphone" required value="{{$personnel->telephoneP}}">
+                                <input name="telephoneP" type="number" class="form-control" placeholder="Entrez un numéro de téléphone" required>
                                 <div class="invalid-feedback">
                                     Renseignez un numéro de téléphone.
                                 </div>
@@ -73,15 +75,11 @@
                                 <select class="form-control" name="idCivilite" id="" required>
                                     <option disabled>Sélectionnez une civilité</option>
                                     @foreach ($civilites as $civilite)
-                                    @if ($civilite->idCivilite === $personnel->idCivilite)
-                                    <option value="{{$civilite->idCivilite}}" selected>{{$civilite->intituleCivilite}}</option>
-                                    @else
                                     <option value="{{$civilite->idCivilite}}">{{$civilite->intituleCivilite}}</option>
-                                    @endif
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    Renseignez un signataire.
+                                    Renseignez une civilité.
                                 </div>
                             </div>
                         </div>
@@ -91,15 +89,11 @@
                                 <select class="form-control" name="idTitreP" id="" required>
                                     <option disabled>Sélectionnez un titre</option>
                                     @foreach ($titres as $titre)
-                                    @if ($titre->idTitreP === $personnel->idTitreP)
-                                    <option value="{{$titre->idTitreP}}" selected>{{$titre->intituleTitreP}}</option>
-                                    @else
                                     <option value="{{$titre->idTitreP}}">{{$titre->intituleTitreP}}</option>
-                                    @endif
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    Renseignez un signataire.
+                                    Renseignez un titre.
                                 </div>
                             </div>
                         </div>
@@ -109,22 +103,32 @@
                                 <select class="form-control" name="idFP" required>
                                     <option disabled>Sélectionnez une fonction</option>
                                     @foreach ($fonctions as $fonction)
-                                    @if ($fonction->idFonctionP === $personnel->idFP)
-                                    <option value="{{$fonction->idFonctionP}}" selected>{{$fonction->intituleFonctionP}}</option>
-                                    @else
                                     <option value="{{$fonction->idFonctionP}}">{{$fonction->intituleFonctionP}}</option>
-                                    @endif
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    Renseignez un signataire.
+                                    Renseignez une fonction.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">Type de personnel</label>
+                                <select class="form-control" name="idTP" required>
+                                    <option disabled>Sélectionnez un type</option>
+                                    @foreach ($types as $type)
+                                    <option value="{{$type->idTP}}">{{$type->intituleTP}}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Renseignez un service.
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Service</label>
-                                <input name="serviceP" type="text" class="form-control" placeholder="Entrez un service" required value="{{$personnel->serviceP}}">
+                                <input name="serviceP" type="text" class="form-control" placeholder="Entrez un service">
                                 <div class="invalid-feedback">
                                     Renseignez un service.
                                 </div>
@@ -133,7 +137,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Motif de prise de service</label>
-                                <input name="motifPServ" type="text" class="form-control" placeholder="Entrez un motif" required value="{{$personnel->motifPServ}}">
+                                <input name="motifPServ" type="text" class="form-control" placeholder="Entrez un motif" required>
                                 <div class="invalid-feedback">
                                     Renseignez un motif.
                                 </div>
@@ -141,14 +145,14 @@
                         </div>
 
                         @php
-                            date_default_timezone_set("Africa/Abidjan");
-                            $date = date("Y-m-d", time());
+                        date_default_timezone_set("Africa/Abidjan");
+                        $date = date("Y-m-d", time());
                         @endphp
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Date de naissance</label>
-                                <input name="dateNaissanceP" type="date" class="form-control" placeholder="Entrez une date" required value="{{date('Y-m-d', strtotime($personnel->dateNaissanceP))}}" max="{{$date}}">
+                                <input name="dateNaissanceP" type="date" class="form-control" placeholder="Entrez une date" required max="{{$date}}">
                                 <div class="invalid-feedback">
                                     Renseignez une date.
                                 </div>
@@ -157,7 +161,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Date de prise de service</label>
-                                <input name="dateNaissanceP" type="date" class="form-control" placeholder="Entrez une date" required value="{{date('Y-m-d', strtotime($personnel->datePServ))}}">
+                                <input name="datePServ" type="date" class="form-control" placeholder="Entrez une date" required value="{{$date}}">
                                 <div class="invalid-feedback">
                                     Renseignez une date.
                                 </div>
@@ -166,19 +170,37 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Date de retraite</label>
-                                <input name="dateRetraiteP" type="date" class="form-control" placeholder="Entrez une date" required value="{{date('Y-m-d', strtotime($personnel->dateRetraiteP))}}" min="{{$date}}">
+                                <input name="dateRetraiteP" type="date" class="form-control" placeholder="Entrez une date" required min="{{$date}}">
                                 <div class="invalid-feedback">
                                     Renseignez une date.
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    {{-- Pour ampliations --}}
+                    {{-- <hr>
+                    <h5>Diffusion</h5>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Ampliations</label>
+                            <select multiple class="form-control" name="idAmp[]" required size="10">
+                                @foreach ($ampliations as $ampliation)
+                                <option value="{{$ampliation->idAmp}}">{{$ampliation->intitule}}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback">
+                                Renseignez une ampliation.
+                            </div>
+                        </div>
+                    </div> --}}
+                    
                     <div class="row text-right">
                         <div class="col-10">
                             <a name="" id="" class="btn btn-primary" href="{{ route('personnel.index') }}" role="button">Retour</a>
                         </div>
                         <div class="col-0">
-                            <button type="submit" class="btn btn-success">Modifier</button>
+                            <button type="submit" class="btn btn-success">Imprimer</button>
                         </div>
                     </div>
                 </form>

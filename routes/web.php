@@ -39,3 +39,7 @@ Route::resource('fonction_personnel', FonctionPersonnelController::class);
 Route::resource('fonction_visiteur', FonctionVisiteurController::class);
 
 Route::resource('personnel', PersonnelController::class);
+
+Route::get('/test', function () {
+    return view('pages.personnel.print_service');
+});

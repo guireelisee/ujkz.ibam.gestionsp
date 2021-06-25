@@ -27,7 +27,7 @@
                                     {{$compteur_personnel}}
                                 </h4>
                                 <h6 class="text-muted m-b-0">
-                                    @if ($compteur_personnel >0)
+                                    @if ($compteur_personnel >1)
                                     Personnels enregistrés
                                     @else
                                     Personnel enregistré
@@ -36,7 +36,7 @@
                             </a>
                         </div>
                         <div class="col-4 text-right">
-                            <i class="feather icon-users f-28"></i>
+                            <i class="feather icon-user f-28"></i>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                                     {{$compteur_bordereau}}
                                 </h4>
                                 <h6 class="text-muted m-b-0">
-                                    @if ($compteur_bordereau >0)
+                                    @if ($compteur_bordereau > 1)
                                     Bordereaux imprimés
                                     @else
                                     Bordereau imprimé

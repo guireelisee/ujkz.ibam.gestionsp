@@ -27,6 +27,12 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
+                                <label for="">Matricule</label>
+                                <input name="matriculeP" type="text" class="form-control" placeholder="Entrez un matricule" required value="{{$personnel->matriculeP}}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
                                 <label for="">Nom</label>
                                 <input name="nomP" type="text" class="form-control" placeholder="Entrez un nom" required value="{{$personnel->nomP}}" readonly>
                             </div>
@@ -118,7 +124,16 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Date de naissance</label>
-                                <input name="dateNaissanceP" type="text" class="form-control" placeholder="Entrez une date" required value="{{date('d M Y', strtotime($personnel->dateNaissanceP))}}" readonly>
+                                <input name="dateNaissanceP" type="text" class="form-control" placeholder="Entrez une date" required value="{{date('d/m/Y', strtotime($personnel->dateNaissanceP))}}" readonly>
+                                <div class="invalid-feedback">
+                                    Renseignez une date.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="">Date de prise de service</label>
+                                <input name="dateNaissanceP" type="text" class="form-control" placeholder="Entrez une date" required value="{{date('d/m/Y', strtotime($personnel->datePServ))}}" readonly>
                                 <div class="invalid-feedback">
                                     Renseignez une date.
                                 </div>
@@ -127,7 +142,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Date de retraite</label>
-                                <input name="dateRetraiteP" type="text" class="form-control" placeholder="Entrez une date" required value="{{date('d M Y', strtotime($personnel->dateRetraiteP))}}" readonly>
+                                <input name="dateRetraiteP" type="text" class="form-control" placeholder="Entrez une date" required value="{{date('d/m/Y', strtotime($personnel->dateRetraiteP))}}" readonly>
                                 <div class="invalid-feedback">
                                     Renseignez une date.
                                 </div>

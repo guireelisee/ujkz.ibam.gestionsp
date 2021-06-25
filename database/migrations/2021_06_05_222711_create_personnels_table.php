@@ -15,6 +15,7 @@ class CreatePersonnelsTable extends Migration
     {
         Schema::create('personnels', function (Blueprint $table) {
             $table->bigIncrements('idP');
+            $table->string('matriculeP')->unique();
             $table->unsignedBigInteger('idCivilite');
             $table->foreign('idCivilite')
                     ->references('idCivilite')

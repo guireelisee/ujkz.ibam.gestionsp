@@ -62,22 +62,22 @@
                     <table class="table table-hover mb-0" id="">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Matricule</th>
                                 <th scope="col">Titre</th>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Prenom</th>
                                 <th scope="col">Fonction</th>
                                 <th scope="col">Téléphone</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Civilité</th>
-                                <th scope="col">Date de prise de service</th>
+                                {{-- <th scope="col">Civilité</th> --}}
+                                <th scope="col">Prise de service</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($personnels as $personnel)
                             <tr>
-                                <th scope="col">{{$personnel->idP}}</th>
+                                <th scope="col">{{$personnel->matriculeP}}</th>
                                 <th scope="col">
                                     @foreach ($titres as $titre)
                                         @if ($titre->idTitreP === $personnel->idTitreP)
@@ -94,13 +94,13 @@
                                         @endif
                                     @endforeach
                                 </th>
-                                <th scope="col">{{$personnel->telephoneP}}</th>
-                                <th scope="col"><a href="mailto:{{$personnel->emailP}}">{{$personnel->emailP}}</a> </th>
-                                <th scope="col">
+                                <th scope="col"><a href="tel:+226{{$personnel->telephoneP}}">{{$personnel->telephoneP}}</a> </th>
+                                <th scope="col"><a href="mailto:{{$personnel->emailP}}" target="_blank">{{$personnel->emailP}}</a> </th>
+                                {{-- <th scope="col">
                                     @foreach ($civilites as $civilite)
                                         @if ($civilite->idCivilite === $personnel->idCivilite)
                                             {{$civilite->intituleCivilite}}
-                                            {{-- @if (strcasecmp($civilite->intituleCivilite, 'madame')==0)
+                                            @if (strcasecmp($civilite->intituleCivilite, 'madame')==0)
                                                 F
                                             @endif
                                             @if (strcasecmp($civilite->intituleCivilite, 'monsieur')==0)
@@ -108,11 +108,11 @@
                                             @endif
                                             @if (strcasecmp($civilite->intituleCivilite, 'mademoiselle')==0)
                                                 M
-                                            @endif --}}
+                                            @endif
                                         @endif
                                     @endforeach
-                                </th>
-                                <th scope="col">{{date('d M Y', strtotime($personnel->datePServ))}}</th>
+                                </th> --}}
+                                <th scope="col">{{date('d/m/Y', strtotime($personnel->datePServ))}}</th>
                                 <th scope="col">
                                     <form action="{{ route('personnel.destroy', $personnel->idP)}}" method="POST">
                                         <a class="btn btn-success" href="{{ route('personnel.show',$personnel->idP) }}"><i class="fas fa-check"></i></a>
