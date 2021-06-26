@@ -37,3 +37,9 @@ Route::resource('titre_visiteur', TitreVisiteurController::class);
 Route::resource('fonctions', FonctionsController::class);
 Route::resource('fonction_personnel', FonctionPersonnelController::class);
 Route::resource('fonction_visiteur', FonctionVisiteurController::class);
+
+Route::resource('personnel', PersonnelController::class);
+Route::get('personnel_archive', 'PersonnelController@archive')->name('personnel.archive');
+Route::post('personnel/cessation', 'PersonnelController@cessation')->name('personnel.cessation');
+Route::post('personnel/print_cessation', 'PersonnelController@print_cessation_historique')->name('personnel.print_cessation');
+Route::post('personnel/print_service', 'PersonnelController@print_service_historique')->name('personnel.print_service');

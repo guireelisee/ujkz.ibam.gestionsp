@@ -70,7 +70,7 @@
                                         @foreach ($ampliations as $ampliation)
                                         <tr>
                                             <th scope="col">{{$ampliation->idAmp}}</th>
-                                            <th scope="col">{{$ampliation->intituleAmp}}</th>
+                                            <th scope="col">{{$ampliation->intitule}}</th>
                                             <th scope="col">
                                                 <form action="{{ route('ampliation.destroy', $ampliation->idAmp)}}" method="POST">
                                                     <a class="btn btn-alternate" href="{{ route('ampliation.edit',$ampliation->idAmp) }}"><i class="fas fa-edit"></i></a>

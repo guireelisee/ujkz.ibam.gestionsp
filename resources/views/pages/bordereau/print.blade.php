@@ -1,4 +1,4 @@
-@extends('layouts.maquette')
+@extends('layouts.maquette_bordereau')
 @section('objet')
 BORDEREAU <br>
 DES PIECES TRANSMISES <br>

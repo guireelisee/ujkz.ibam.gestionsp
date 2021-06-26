@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Ampliation;
 
 class AmpliationSeeder extends Seeder
 {
@@ -13,6 +14,38 @@ class AmpliationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $ampliations = [
+            [
+                'intitule'=>'Présidence'
+            ],
+            [
+                'intitule'=>'DHR'
+            ],
+            [
+                'intitule'=>'DAF'
+            ],
+            [
+                'intitule'=>'AC'
+            ],
+            [
+                'intitule'=>'SP'
+            ],
+            [
+                'intitule'=>'Intéressé'
+            ],
+            [
+                'intitule'=>'Chrono'
+            ],
+            [
+                'intitule'=>'Etudiants'
+            ],
+            [
+                'intitule'=>'Personnel'
+            ],
+        ];
+
+        foreach ($ampliations as $ampliation) {
+            Ampliation::create($ampliation);
+        }
     }
 }

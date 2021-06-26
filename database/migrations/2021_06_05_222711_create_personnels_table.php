@@ -15,6 +15,7 @@ class CreatePersonnelsTable extends Migration
     {
         Schema::create('personnels', function (Blueprint $table) {
             $table->bigIncrements('idP');
+            $table->string('matriculeP')->unique();
             $table->unsignedBigInteger('idCivilite');
             $table->foreign('idCivilite')
                     ->references('idCivilite')
@@ -48,6 +49,9 @@ class CreatePersonnelsTable extends Migration
             $table->dateTime('dateRetraiteP');
             $table->string('motifPServ', 255);
             $table->dateTime('datePServ');
+            $table->string('motifFServ')->nullable();
+            $table->dateTime('dateFServ')->nullable();
+            $table->boolean('statut')->nullable();
             $table->timestamps();
         });
     }

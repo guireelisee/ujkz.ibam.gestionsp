@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\TitrePersonnel;
 
 class TitrePersonnelSeeder extends Seeder
 {
@@ -13,6 +14,23 @@ class TitrePersonnelSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $titres = [
+            [
+                'intituleTitreP'=> 'Professeur titulaire'
+            ],
+            [
+                'intituleTitreP'=> 'Docteur'
+            ],
+            [
+                'intituleTitreP'=> 'Maître Assistant'
+            ],
+            [
+                'intituleTitreP'=> 'Maître de conférences'
+            ],
+        ];
+
+        foreach ($titres as $titre) {
+            TitrePersonnel::create($titre);
+        }
     }
 }
