@@ -53,7 +53,8 @@
         <div class="card table-card">
             <div class="card-header">
                 <div class="card-header-right">
-                    {{-- <a href="{{ route('personnel.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter</a> --}}
+                    <a href="{{ route('personnel.create') }}" type="button" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Cessation de service</a>
+                    <a href="{{ route('personnel.create') }}" type="button" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Prise de service</a>
                 </div>
             </div>
             <div class="card-body p-0">
@@ -69,13 +70,13 @@
                                 <th scope="col">Fonction</th>
                                 <th scope="col">Téléphone</th>
                                 <th scope="col">Email</th>
-                                {{-- <th scope="col">Civilité</th> --}}
                                 <th scope="col">Prise de service</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($personnels as $personnel)
+                                @if ($personnel->statut == 0)
                             <tr>
                                 <th scope="col">{{$personnel->matriculeP}}</th>
                                 <th scope="col">
@@ -96,33 +97,12 @@
                                 </th>
                                 <th scope="col"><a href="tel:+226{{$personnel->telephoneP}}">{{$personnel->telephoneP}}</a> </th>
                                 <th scope="col"><a href="mailto:{{$personnel->emailP}}" target="_blank">{{$personnel->emailP}}</a> </th>
-                                {{-- <th scope="col">
-                                    @foreach ($civilites as $civilite)
-                                        @if ($civilite->idCivilite === $personnel->idCivilite)
-                                            {{$civilite->intituleCivilite}}
-                                            @if (strcasecmp($civilite->intituleCivilite, 'madame')==0)
-                                                F
-                                            @endif
-                                            @if (strcasecmp($civilite->intituleCivilite, 'monsieur')==0)
-                                                M
-                                            @endif
-                                            @if (strcasecmp($civilite->intituleCivilite, 'mademoiselle')==0)
-                                                M
-                                            @endif
-                                        @endif
-                                    @endforeach
-                                </th> --}}
                                 <th scope="col">{{date('d/m/Y', strtotime($personnel->datePServ))}}</th>
                                 <th scope="col">
-                                    <form action="{{ route('personnel.destroy', $personnel->idP)}}" method="POST">
-                                        <a class="btn btn-success" href="{{ route('personnel.show',$personnel->idP) }}"><i class="fas fa-check"></i></a>
-                                        <a class="btn btn-alternate" href="{{ route('personnel.edit',$personnel->idP) }}"><i class="fas fa-edit"></i></a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                    <a class="btn btn-success" href="{{ route('personnel.show',$personnel->idP) }}"><i class="fas fa-check"></i></a>
                                 </th>
                             </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

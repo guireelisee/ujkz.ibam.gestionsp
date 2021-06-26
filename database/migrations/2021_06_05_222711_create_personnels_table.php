@@ -49,6 +49,9 @@ class CreatePersonnelsTable extends Migration
             $table->dateTime('dateRetraiteP');
             $table->string('motifPServ', 255);
             $table->dateTime('datePServ');
+            $table->string('motifFServ')->nullable();
+            $table->dateTime('dateFServ')->nullable();
+            $table->boolean('statut')->nullable();
             $table->timestamps();
         });
     }

@@ -177,24 +177,7 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- Pour ampliations --}}
-                    {{-- <hr>
-                    <h5>Diffusion</h5>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">Ampliations</label>
-                            <select multiple class="form-control" name="idAmp[]" required size="10">
-                                @foreach ($ampliations as $ampliation)
-                                <option value="{{$ampliation->idAmp}}">{{$ampliation->intitule}}</option>
-                                @endforeach
-                            </select>
-                            <div class="invalid-feedback">
-                                Renseignez une ampliation.
-                            </div>
-                        </div>
-                    </div> --}}
-                    
+                    <input class="form-control" type="text" name="statut" value="1" hidden>
                     <div class="row text-right">
                         <div class="col-10">
                             <a name="" id="" class="btn btn-primary" href="{{ route('personnel.index') }}" role="button">Retour</a>

@@ -13,10 +13,6 @@
                         <a href="{{ route('bordereau.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-printer"></i></span><span class="pcoded-mtext">Bordereau</span></a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-minus"></i></span><span class="pcoded-mtext">Cessation de service</span></a>
-                    </li>
-
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Fiches</span></a>
                         <ul class="pcoded-submenu">
@@ -50,12 +46,12 @@
                         <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notes d'information</span></a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('personnel.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Personnels</span></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{ route('personnel.create') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span><span class="pcoded-mtext">Prise de service</span></a>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Personnels</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ route('personnel.index') }}">En service</a></li>
+                            <li><a href="{{ route('personnel.archive') }}">Archivés</a></li>
+                        </ul>
                     </li>
 
                     <li class="nav-item">

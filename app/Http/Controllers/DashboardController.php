@@ -15,7 +15,7 @@ class DashboardController extends Controller
     */
     function index()
     {
-        $compteur_personnel= Personnel::all()->count();
+        $compteur_personnel= Personnel::where('statut',1)->count();
         $compteur_bordereau = Bordereau::all()->count();
         return view('index', compact('compteur_personnel','compteur_bordereau'));
     }
