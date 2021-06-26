@@ -20,6 +20,24 @@
         <div class="card">
             <div class="card-body">
                 <h5>Informations</h5>
+                <div class="row text-right" style="margin-top: -40px">
+                    <div class="col-10">
+                    @if ($personnel->statut == 0)
+                            <form action="{{ route('personnel.print_cessation', ['idP'=>$personnel->idP]) }}" method="post">
+                                @csrf
+                                @method('POST')
+                                <button type="submit" class="btn btn-secondary"><i class="fas fa-print"></i> Cessation de service</button>
+                            </form>
+                    @endif
+                    </div>
+                    <div class="col-0">
+                        <form action="{{ route('personnel.print_service', ['idP'=>$personnel->idP]) }}" method="post">
+                            @csrf
+                            @method('POST')
+                            <button type="submit" class="btn btn-secondary"><i class="fas fa-print"></i> Prise de service</button>
+                        </form>
+                    </div>
+                </div>
                 <hr>
                 <form class="needs-validation" action="{{ route('personnel.update', $personnel->idP) }}" method="post" novalidate>
                     @csrf

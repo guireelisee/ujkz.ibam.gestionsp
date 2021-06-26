@@ -52,10 +52,6 @@
     <div class="col-xl-12 col-md-12">
         <div class="card table-card">
             <div class="card-header">
-                <div class="card-header-left">
-                    <a href="{{ route('personnel.create') }}" type="button" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Cessation de service</a>
-                    <a href="{{ route('personnel.create') }}" type="button" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Prise de service</a>
-                </div>
                 <div class="card-header-right">
                     {{-- <a href="{{ route('personnel.cessation') }}" type="button" class="btn btn-danger"><i class="fa fa-user-minus" aria-hidden="true"></i> Cessation de service</a> --}}
                     <a href="{{ route('personnel.create') }}" type="button" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Prise de service</a>
@@ -104,7 +100,7 @@
                                 <th scope="col">{{date('d/m/Y', strtotime($personnel->datePServ))}}</th>
                                 <th scope="col">
                                     <form action="{{ route('personnel.cessation', ['idP'=>$personnel->idP])}}" method="POST">
-                                        <a class="btn btn-success" href="{{ route('personnel.show',$personnel->idP) }}"><i class="fas fa-check"></i></a>
+                                        <a class="btn btn-success" href="{{ route('personnel.show',$personnel->idP) }}"><i class="fas fa-folder"></i></a>
                                             <a class="btn btn-alternate" href="{{ route('personnel.edit',$personnel->idP) }}"><i class="fas fa-edit"></i></a>
                                             @csrf
                                             @method('POST')

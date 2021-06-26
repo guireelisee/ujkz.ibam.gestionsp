@@ -157,7 +157,6 @@ class PersonnelController extends Controller
 
     public function print_cessation(Request $request)
     {
-        // dd($request);
         $personnel = Personnel::where('idP',$request->idP)->first();
         $personnel->update([
             'motifFServ'=> $request->motifFServ,
@@ -171,6 +170,28 @@ class PersonnelController extends Controller
         $civilites = Civilite::all();
 
         return view('pages.personnel.print_cessation_service', compact('personnel','titres','fonctions','civilites','types'));
+    }
+
+    public function print_cessation_historique()
+    {
+        $personnel = Personnel::where('idP',$_GET['idP'])->first();
+        $titres = TitrePersonnel::all();
+        $types = TypePersonnel::all();
+        $fonctions = FonctionPersonnel::all();
+        $civilites = Civilite::all();
+
+        return view('pages.personnel.print_cessation_service', compact('personnel','titres','fonctions','civilites','types'));
+    }
+
+    public function print_service_historique()
+    {
+        $personnel = Personnel::where('idP',$_GET['idP'])->first();
+        $titres = TitrePersonnel::all();
+        $types = TypePersonnel::all();
+        $fonctions = FonctionPersonnel::all();
+        $civilites = Civilite::all();
+
+        return view('pages.personnel.print_prise_service', compact('personnel','titres','fonctions','civilites','types'));
     }
 
 }

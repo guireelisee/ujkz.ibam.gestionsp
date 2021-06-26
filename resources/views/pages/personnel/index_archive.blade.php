@@ -51,12 +51,12 @@
     <!-- prject ,team member start -->
     <div class="col-xl-12 col-md-12">
         <div class="card table-card">
-            <div class="card-header">
+            {{-- <div class="card-header">
                 <div class="card-header-right">
                     <a href="{{ route('personnel.create') }}" type="button" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Cessation de service</a>
                     <a href="{{ route('personnel.create') }}" type="button" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Prise de service</a>
                 </div>
-            </div>
+            </div> --}}
             <div class="card-body p-0">
                 <div class="table-responsive">
                     {{-- id="example" --}}
