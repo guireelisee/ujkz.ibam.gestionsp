@@ -43,7 +43,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notes d'information</span></a>
+                        <a href="{{ route('note_info.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Notes d'information</span></a>
                     </li>
 
                     <li class="nav-item pcoded-hasmenu">

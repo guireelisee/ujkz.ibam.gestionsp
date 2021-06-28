@@ -16,7 +16,7 @@ class BordereauController extends Controller
     public function index()
     {
         $bordereaus = Bordereau::all();
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
         return view('pages.bordereau.index', compact('bordereaus','personnels'));
     }
 
@@ -27,7 +27,7 @@ class BordereauController extends Controller
      */
     public function create()
     {
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
         return view('pages.bordereau.create', compact('personnels'));
     }
 
@@ -41,7 +41,7 @@ class BordereauController extends Controller
     {
         $input = $request->all();
         $bordereau = Bordereau::create($input);
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
 
         return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
@@ -65,7 +65,7 @@ class BordereauController extends Controller
      */
     public function edit(Bordereau $bordereau)
     {
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
         return view('pages.bordereau.edit', compact('bordereau', 'personnels'));
     }
 
@@ -81,7 +81,7 @@ class BordereauController extends Controller
         $bordereau->update($request->all());
 
         $bordereau = Bordereau::where('idB', $bordereau->idB)->first();
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
         return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
 
@@ -105,8 +105,8 @@ class BordereauController extends Controller
     public function print()
     {
         $bordereau = Bordereau::where('idB',$_GET['idB'])->first();
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
         return view('pages.bordereau.print', compact('bordereau','personnels'));
     }
-    
+
 }

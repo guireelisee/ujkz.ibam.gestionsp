@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call([FonctionPersonnelSeeder::class]);
         $this->call([TypePersonnelSeeder::class]);
         $this->call([AmpliationSeeder::class]);
+        $this->call([DestinataireNoteInfoSeeder::class]);
     }
 }

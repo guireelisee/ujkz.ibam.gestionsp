@@ -18,7 +18,7 @@ class PersonnelController extends Controller
     */
     public function index()
     {
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',1)->get();
         $titres = TitrePersonnel::all();
         $types = TypePersonnel::all();
         $fonctions = FonctionPersonnel::all();
@@ -28,7 +28,7 @@ class PersonnelController extends Controller
 
     public function archive()
     {
-        $personnels = Personnel::all();
+        $personnels = Personnel::where('statut',0)->get();
         $titres = TitrePersonnel::all();
         $types = TypePersonnel::all();
         $fonctions = FonctionPersonnel::all();
@@ -149,7 +149,7 @@ class PersonnelController extends Controller
         return redirect()->route('personnels.index')->with('success','Personnel supprimé avec succès.');
     }
 
-    public function cessation()
+    public function formulaire_cessation()
     {
         $idP = $_GET['idP'];
         return view('pages.personnel.cessation_service', compact('idP'));

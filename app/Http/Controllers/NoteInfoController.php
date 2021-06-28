@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\NoteInfo;
+use App\Models\Personnel;
+use App\Models\DestinataireNoteInfo;
 use Illuminate\Http\Request;
 
 class NoteInfoController extends Controller
@@ -14,7 +16,10 @@ class NoteInfoController extends Controller
      */
     public function index()
     {
-        //
+        $notes = NoteInfo::all();
+        $personnels = Personnel::where('statut',1)->get();
+        $destinataires = DestinataireNoteInfo::all();
+        return view('pages.note_info.index', compact('notes','personnels','destinataires'));
     }
 
     /**
@@ -24,7 +29,10 @@ class NoteInfoController extends Controller
      */
     public function create()
     {
-        //
+        $notes = NoteInfo::all();
+        $personnels = Personnel::where('statut',1)->get();
+        $destinataires = DestinataireNoteInfo::all();
+        return view('pages.note_info.create', compact('notes','personnels','destinataires'));
     }
 
     /**
@@ -35,7 +43,7 @@ class NoteInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

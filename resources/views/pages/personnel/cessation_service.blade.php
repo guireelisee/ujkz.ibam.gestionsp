@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h5>Informations à renseigner</h5>
                 <hr>
-                <form class="needs-validation" action="{{ route('personnel.print_cessation') }}" method="post" novalidate>
+                <form class="needs-validation" action="{{ route('personnel.print_cessation_original') }}" method="post" novalidate>
                     @csrf
                     <div class="row">
                         <div class="col-md-6">

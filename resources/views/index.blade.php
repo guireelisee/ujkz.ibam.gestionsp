@@ -16,21 +16,20 @@
 <!-- [ Main Content ] start -->
 <div class="row">
     <!-- page statustic card start -->
-    <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-yellow">
-                            <a href="{{ route('personnel.index') }}" style="color: #f9b956">
+                            <h4 class="text-c-blue">
+                            <a href="{{ route('personnel.index') }}" style="color: #477ffb">
                                     {{$compteur_personnel}}
                                 </h4>
                                 <h6 class="text-muted m-b-0">
                                     @if ($compteur_personnel >1)
-                                    Personnels enregistrés
+                                    Personnels en service
                                     @else
-                                    Personnel enregistré
+                                    Personnel en service
                                     @endif
                                 </h6>
                             </a>
@@ -40,12 +39,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-c-yellow">
-
+                <div class="card-footer bg-c-blue">
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h4 class="text-c-yellow">
+                            <a href="{{ route('personnel.archive') }}" style="color:#f9b956">
+                                    {{$compteur_personnel_archive}}
+                                </h4>
+                                <h6 class="text-muted m-b-0">
+                                    @if ($compteur_personnel_archive >1)
+                                    Personnels dans les archives
+                                    @else
+                                    Personnel dans les archives
+                                    @endif
+                                </h6>
+                            </a>
+                        </div>
+                        <div class="col-4 text-right">
+                            <i class="feather icon-user-minus f-28"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-c-yellow">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center">
@@ -64,7 +89,7 @@
                             </a>
                         </div>
                         <div class="col-4 text-right">
-                            <i class="feather icon-file-text f-28"></i>
+                            <i class="feather icon-clipboard f-28"></i>
                         </div>
                     </div>
                 </div>
@@ -73,34 +98,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-red">3</h4>
-                            <h6 class="text-muted m-b-0">Task</h6>
+                            <h4 class="text-c-blue">3</h4>
+                            <h6 class="text-muted m-b-0">Notes</h6>
                         </div>
                         <div class="col-4 text-right">
-                            <i class="feather icon-calendar f-28"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer bg-c-red">
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h4 class="text-c-blue">4</h4>
-                            <h6 class="text-muted m-b-0">Downloads</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <i class="feather icon-thumbs-down f-28"></i>
+                            <i class="feather icon-layers f-28"></i>
                         </div>
                     </div>
                 </div>
@@ -109,16 +116,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-yellow">5</h4>
-                            <h6 class="text-muted m-b-0">All Earnings</h6>
+                            <h4 class="text-c-yellow">3</h4>
+                            <h6 class="text-muted m-b-0">Fiches</h6>
                         </div>
                         <div class="col-4 text-right">
-                            <i class="feather icon-bar-chart-2 f-28"></i>
+                            <i class="feather icon-file-text f-28"></i>
                         </div>
                     </div>
                 </div>
@@ -127,16 +134,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-green">6</h4>
-                            <h6 class="text-muted m-b-0">Page Views</h6>
+                            <h4 class="text-c-green">3</h4>
+                            <h6 class="text-muted m-b-0">Lettres</h6>
                         </div>
                         <div class="col-4 text-right">
-                            <i class="feather icon-file-text f-28"></i>
+                            <i class="feather icon-mail f-28"></i>
                         </div>
                     </div>
                 </div>
@@ -145,44 +152,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h4 class="text-c-red">7</h4>
-                            <h6 class="text-muted m-b-0">Task</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <i class="feather icon-calendar f-28"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer bg-c-red">
 
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h4 class="text-c-blue">8</h4>
-                            <h6 class="text-muted m-b-0">Downloads</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <i class="feather icon-thumbs-down f-28"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer bg-c-blue">
 
-                </div>
-            </div>
-        </div>
-
-    </div>
     <!-- page statustic card end -->
 
     {{-- <!-- prject ,team member start -->
